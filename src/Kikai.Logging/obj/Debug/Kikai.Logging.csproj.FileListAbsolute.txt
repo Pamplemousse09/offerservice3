@@ -9,14 +9,3 @@ C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Debug\
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\obj\Debug\Kikai.Logging.csprojResolveAssemblyReference.cache
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\obj\Debug\Kikai.Logging.dll
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\obj\Debug\Kikai.Logging.pdb
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\bin\Debug\Resource\Values\strings.xml
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\bin\Debug\Kikai.Logging.dll.config
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\bin\Debug\Kikai.Logging.dll
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\bin\Debug\Kikai.Logging.pdb
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\bin\Debug\log4net.dll
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\bin\Debug\Newtonsoft.Json.dll
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\bin\Debug\log4net.xml
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\bin\Debug\Newtonsoft.Json.xml
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\obj\debug\Kikai.Logging.csprojResolveAssemblyReference.cache
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\obj\debug\Kikai.Logging.dll
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Logging\obj\debug\Kikai.Logging.pdb

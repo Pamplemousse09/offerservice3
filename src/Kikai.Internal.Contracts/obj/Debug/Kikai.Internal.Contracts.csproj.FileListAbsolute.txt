@@ -3,8 +3,3 @@ C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Internal.Contracts
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Internal.Contracts\bin\Debug\Kikai.Internal.Contracts.pdb
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Internal.Contracts\obj\Debug\Kikai.Internal.Contracts.dll
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Internal.Contracts\obj\Debug\Kikai.Internal.Contracts.pdb
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal.Contracts\bin\Debug\Kikai.Internal.Contracts.dll.config
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal.Contracts\bin\Debug\Kikai.Internal.Contracts.dll
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal.Contracts\bin\Debug\Kikai.Internal.Contracts.pdb
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal.Contracts\obj\debug\Kikai.Internal.Contracts.dll
-C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal.Contracts\obj\debug\Kikai.Internal.Contracts.pdb
