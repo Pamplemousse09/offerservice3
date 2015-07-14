@@ -83,7 +83,7 @@ namespace Kikai.WebAPI.Test.Controllers
 
             Assert.Null(response.Content.Data.Attributes);
             Assert.NotNull(response.Content.Data.Errors);
-            Assert.True(response.Content.Data.Errors.Exists(i => i.Code == 3000));
+            Assert.True(response.Content.Data.Errors.Exists(i => i.Code == 2999));
         }
 
         /// <summary>
