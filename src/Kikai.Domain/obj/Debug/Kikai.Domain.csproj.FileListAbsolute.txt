@@ -9,3 +9,14 @@ C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Debug\N
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\obj\Debug\Kikai.Domain.csprojResolveAssemblyReference.cache
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\obj\Debug\Kikai.Domain.dll
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\obj\Debug\Kikai.Domain.pdb
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\bin\Debug\Resource\Values\FAQ.xml
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\bin\Debug\Kikai.Domain.dll.config
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\bin\Debug\Kikai.Domain.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\bin\Debug\Kikai.Domain.pdb
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\bin\Debug\log4net.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\bin\Debug\log4net.xml
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\obj\debug\Kikai.Domain.csprojResolveAssemblyReference.cache
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\obj\debug\Kikai.Domain.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Domain\obj\debug\Kikai.Domain.pdb

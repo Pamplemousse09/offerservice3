@@ -21,3 +21,26 @@ C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Internal\obj\Debug
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Internal\obj\Debug\Kikai.Internal.csprojResolveAssemblyReference.cache
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Internal\obj\Debug\Kikai.Internal.dll
 C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Internal\obj\Debug\Kikai.Internal.pdb
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Resource\Values\strings.xml
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Kikai.Internal.dll.config
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Kikai.Internal.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Kikai.Internal.pdb
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Kikai.Internal.Contracts.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Kikai.Logging.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\log4net.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\LSR.Security.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\LSR.WebClient.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\MySql.Data.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Newtonsoft.Json.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Kikai.Logging.pdb
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Kikai.Internal.Contracts.pdb
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\log4net.xml
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\Newtonsoft.Json.xml
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\obj\debug\Kikai.Internal.csproj.App.config
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\obj\debug\Kikai.Internal.csprojResolveAssemblyReference.cache
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\obj\debug\Kikai.Internal.dll
+C:\Users\edmond\Desktop\New folder (3)\offerservice3\src\Kikai.Internal\obj\debug\Kikai.Internal.pdb
