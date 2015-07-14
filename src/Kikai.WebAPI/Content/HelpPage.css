@@ -1,0 +1,227 @@
+pre.wrapped {
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+}
+
+.warning-message-container {
+    margin-top: 20px;
+    padding: 0 10px;
+    color: #525252;
+    background: #EFDCA9; 
+    border: 1px solid #CCCCCC;
+}
+
+.help-page-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 0px 0px 20px 0px;
+    border-top: 2px solid #D4D4D4;
+}
+
+.help-page-table th {
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #D4D4D4;
+    padding: 8px 6px 8px 6px;
+}
+
+.help-page-table td {
+    border-bottom: 2px solid #D4D4D4;
+    padding: 15px 8px 15px 8px;
+    vertical-align: top;
+}
+
+.help-page-table pre, .help-page-table p {
+    margin: 0px;
+    padding: 0px;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.help-page-table tbody tr:hover td {
+    background-color: #F3F3F3;
+}
+
+a:hover {
+    background-color: transparent;
+}
+
+.sample-header {
+    border: 2px solid #D4D4D4;
+    background: #76B8DB;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-bottom: none;
+    display: inline-block;
+    margin: 10px 0px 0px 0px;
+}
+
+.sample-content {
+    display: block;
+    border-width: 0;
+    padding: 15px 20px;
+    background: #FFFFFF;
+    border: 2px solid #D4D4D4;
+    margin: 0px 0px 10px 0px;
+}
+
+.api-name {
+    width: 40%;
+}
+
+.api-documentation {
+    width: 60%;
+}
+
+.parameter-name {
+    width: 20%;
+    font-style:italic;
+}
+
+.parameter-documentation {
+    width: 50%;
+}
+
+.parameter-source {
+    width: 30%;
+}
+
+.parameter-type {
+    width: 10%;
+}
+
+.parameter-required {
+    width: 10%;
+}
+
+.url-header {
+    width: 100%;
+}
+
+.url-example {
+  border: 1px solid #ccc;
+  margin-left: 5px;
+  padding-left: 18px;
+  border-left: 3px solid #F87205;
+  overflow: auto;
+  padding: 9.5px;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+.help-page-parameters-table {
+    border-collapse: collapse;
+    text-align: left;
+    margin: 0px 0px 20px 0px;
+    border-top: 2px solid #D4D4D4;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    padding-left: 18px;
+    border-left: 3px solid #F87205;
+    overflow: auto;
+    padding: 9.5px;
+    background-color: #f5f5f5;
+    width: 100%;
+}
+
+.help-page-parameters-table tbody {
+    border-top: 2px solid #D4D4D4;
+}
+
+.parameter-header {
+    border-top: 1px solid #D4D4D4;
+    border-left: 1px solid #D4D4D4;
+}
+
+
+.help-page-parameters-table th {
+    text-align: left;
+    font-weight: bold;
+    padding: 10px 8px 10px 12px;
+}
+
+.help-page-parameters-table td {
+    border-bottom: 2px solid #D4D4D4;
+    padding: 10px 8px 10px 14px;
+    vertical-align: top;
+}
+
+.help-page-parameters-table pre, .help-page-parameters-table p {
+    margin: 0px;
+    padding: 0px;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.help-page-parameters-table tbody tr:hover td {
+    background-color: white;
+}
+
+#container {
+ margin: 0 auto;
+ width: 100%;
+ display: inline-block;
+ border-width: 0;
+ padding: 15px 20px;
+ /*background: #FFFFFF;
+ border: 2px solid #D4D4D4;*/
+ margin: 0px 0px 10px 0px;
+}
+#container input {
+ height: 2.5em;
+ visibility: hidden;
+}
+#container label {
+ border-radius: .25em .25em 0 0;
+ cursor: pointer;
+ display: block;
+ float: left;
+ padding: 5px;
+ text-align: center;
+ color: #333;
+ padding: 8px 15px;
+ border-bottom: none;
+ display: inline-block;
+ margin: 10px 0px 0px 0px;
+}
+#container input:hover + label {
+ background: #ddd;
+ color: #666; 
+}
+#container input:checked + label {
+ background: #76B8DB; 
+ color: #FFFFFF; 
+ position: relative;
+ z-index: 6;
+ border: 2px solid #D4D4D4;
+}
+
+#content {
+ border-radius: 0 .25em .25em .25em;
+ min-height: 70em;
+ position: relative;
+ width: 100%;
+ z-index: 5;
+ overflow: auto;
+ border-top: 2px solid #B8B8B8;
+}
+
+#content div {
+ opacity: 0;
+ padding: 1.5em;
+ position: absolute;
+ z-index: -100;
+ width: 100€;
+}
+
+#container input#tab-1:checked ~ #content #content-1,
+#container input#tab-2:checked ~ #content #content-2{
+ opacity: 1;
+ z-index: 100;
+ width: 100%;
+}
+
+

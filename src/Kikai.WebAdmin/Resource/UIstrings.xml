@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<messages>
+
+  <message
+   id="0001"
+   Key="MSG_ADDSAMPLES_SUCCESSFULL"
+   Message="This sample was successfully added to the offer service."
+   Description=""
+    />
+
+  <message
+   id="1001"
+   Key="ERR_UNKNOWN"
+   Message="An error occured while processing your request. Please contact administrator."
+   Description=""
+    />
+  
+  <message
+   id="1002"
+   Key="ERR_SEARCHSTUDY_TIMEOUT"
+   Message="The search for study {0} took longer than expected. Please try again later or contact support."
+   Description=""
+    />
+  
+  <message
+   id="1003"
+   Key="ERR_SEARCHSTUDY_EXCEPTION"
+   Message="An unknow problem occured while trying to get samples. Please try again later or contact support."
+   Description=""
+    />
+
+  <message
+   id="1004"
+   Key="ERR_ADDSAMPLES_TIMEOUT"
+   Message="This sample could not be added as the call to SAM took longer than expected. Please try again later or contact support."
+   Description=""
+    />
+
+  <message
+   id="1005"
+   Key="ERR_ADDSAMPLES_MISSINGDATA"
+   Message="Missing Data for Sample, either Mainstream is not enabled or data not available in SAM."
+   Description=""
+    />
+
+  <message
+   id="2001"
+   Key="LOG_SEARCHSTUDY_EXCEPTION"
+   Message="A problem occured while trying to get samples from Study Id. StudyId: {0}"
+   Description=""
+    />
+
+  <message
+   id="2002"
+   Key="LOG_ADDSAMPLES_EXCEPTION"
+   Message="A problem occured while trying to add a sample to the database. Sample Id: {0}, Start Date: {1}, End Date: {2}, LOI: {3}"
+   Description=""
+    />
+  
+  <message
+   id="2003"
+   Key="LOG_GETATTRIBUTES_EXCEPTION"
+   Message="A problem occured while processing GetFilteredAttributes stored procedure. Attribute Id: {0}, Status: {1}, Page: {2}, Page size: {3}"
+   Description=""
+    />
+
+  <message
+   id="2004"
+   Key="LOG_PUTATTRIBUTES_EXCEPTION"
+   Message="A problem occured while trying to publish the Attribute: {0} with Publish status: {1} And last updated by: {2}"
+   Description=""
+    />
+
+  <message
+   id="2005"
+   Key="LOG_HBREQUEST_EXCEPTION"
+   Message="A problem occured while trying to authenticate Hummingbird user."
+   Description=""
+    />
+
+  <message
+   id="2006"
+   Key="LOG_AUTHENTICATE_EXCEPTION"
+   Message="A problem occured while trying to authenticate Username: {0} Password: {1}"
+   Description=""
+    />
+
+  <message
+   id="2007"
+   Key="LOG_GETOFFERS_EXCEPTION"
+   Message="A problem occured while processing GetFilteredOffers stored procedure. Study Id: {0}, Title: {1}, Status: {2}, Type: {3}, Page: {4}, Page size: {5}"
+   Description=""
+    />
+
+  <message
+   id="2008"
+   Key="LOG_GETDROPDOWNOFFERATTRIBUTES_EXCEPTION"
+   Message="A problem occured while trying to get Attributes drop down list in Edit page. Offer Id: {0}"
+   Description=""
+    />
+
+  <message
+   id="2009"
+   Key="LOG_GETOFFERATTRIBUTESEDIT_EXCEPTION"
+   Message="A problem occured while trying to get Attributes by offer stored procedure in Edit page. Offer Id: {0}"
+   Description=""
+    />
+
+  <message
+   id="2010"
+   Key="LOG_GETOFFERATTRIBUTESVIEW_EXCEPTION"
+   Message="A problem occured while trying to get Attributes by offer stored procedure in View page. Offer Id: {0}"
+   Description=""
+    />
+
+  <message
+   id="2011"
+   Key="LOG_UPDATEOFFER_EXCEPTION"
+   Message="A problem occured while trying to update offer. Offer Id: {0}, Sample Id: {1}"
+   Description=""
+    />
+
+  <message
+   id="2012"
+   Key="LOG_UPDATEOFFERSTATUS_EXCEPTION"
+   Message="A problem occurred while trying to update Offer Status in the database and initialize its QuotaCells. Offer Id: {0},  Sample Id: {1}"
+   Description=""
+    />
+
+  <message
+   id="2013"
+   Key="LOG_UPDATEOFFERACTIVATE_EXCEPTION"
+   Message="A problem occurred while trying to activate the offer, check in SAM for sample existence and update its attributes. Offer Id: {0}  Sample Id: {1}"
+   Description=""
+    />
+
+  <message
+   id="2014"
+   Key="LOG_ADDPROVIDER_EXCEPTION"
+   Message="A problem occured while processing Provider_Add stored procedure. Name: {0}, ApiUser: {1}, ProviderCode: {2}, Active: {3}, ByPass: {4}"
+   Description=""
+    />
+
+  <message
+   id="2015"
+   Key="LOG_EDITPROVIDER_EXCEPTION"
+   Message="A problem occured while processing Provider_Update stored procedure. Name: {0}, ApiUser: {1}, ProviderCode: {2}, Active: {3}, ByPass: {4}"
+   Description=""
+    />
+
+  <message
+   id="2016"
+   Key="LOG_DELETEPROVIDER_EXCEPTION"
+   Message="A problem occured while processing Provider_Delete stored procedure. Provider Id: {0}"
+   Description=""
+    />
+
+  <message
+   id="2017"
+   Key="LOG_GETPROVIDERS_EXCEPTION"
+   Message="A problem occured while getting provider grid results. Provider Name: {0}, Page: {1}, PageSize: {2}, Total Rows: {3}"
+   Description=""
+    />
+
+  <message
+   id="2018"
+   Key="LOG_PROVIDEREXIST_EXCEPTION"
+   Message="A problem occured while checking if ApiUser already exists. Provider Id: {0}, Provider ApiUser: {1}"
+   Description=""
+    />
+
+  <message
+   id="2019"
+   Key="LOG_ADDRESPONDENTATTRIBUTE_EXCEPTION"
+   Message="A problem occured while trying to add a respondent attribute. Offer Id: {0}, Attribute Id: {1}, Value: {2}"
+   Description=""
+    />
+
+  <message
+   id="2020"
+   Key="LOG_GETATTRIBUTEINFO_EXCEPTION"
+   Message="A problem occured while trying to get attribute info. Attribute Id: {0}"
+   Description=""
+    />
+
+  <message
+   id="2021"
+   Key="LOG_DELETERESPONDENTATTRIBUTE_EXCEPTION"
+   Message="A problem occured while trying to delete respondent attribute. Attribute Id: {0}"
+   Description=""
+    />
+
+  <message
+   id="2022"
+   Key="LOG_SETCPI_EXCEPTION"
+   Message="A problem occured while trying to set the cpi. Offer Id: {0}, Value: {1}"
+   Description=""
+    />
+
+  <message
+   id="2023"
+   Key="LOG_GETTERMSHISTORY_EXCEPTION"
+   Message="A problem occured while trying to get the terms history. Offer Id: {0}"
+   Description=""
+    />
+
+</messages>

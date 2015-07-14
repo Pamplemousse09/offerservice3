@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+<!-- Web.config parameters -->
+  <parameter name="KikaiDB-Web.config Connection String" description="Please provide the Offer Service database connection string."
+    defaultValue="Data Source=offer-dev.ckd0hhd5vffe.us-west-2.rds.amazonaws.com; Initial Catalog=Offers;Integrated Security=False;User ID=odbUser;Password=Fp8790eMrtb9qag;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/connectionStrings/add[@name='KikaiDB']/@connectionString" />
+  </parameter>
+
+  <parameter name="Update Provider Interval(MIN)" description="Please provider the time the provider information should be cached in the database."
+    defaultValue="3" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/appSettings/add[@key='PROVIDER_MANAGEMENT_CHECK_INTERVAL']/@value" />
+  </parameter>
+  
+  <parameter name="PMP Store Server" description="Please provide the PMP Store server name" defaultValue="devcatdb02.corp.gmi.lcl" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WsAuth/PmpDbStore/@server" />
+  </parameter>
+
+  <parameter name="PMP Store DB" description="Please provide the PMP Store DB" defaultValue="webservice" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WsAuth/PmpDbStore/@db" />
+  </parameter>
+
+  <parameter name="PMP Store Username" description="Please provide the PMP Store username" defaultValue="developer" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WsAuth/PmpDbStore/@user" />
+  </parameter>
+
+  <parameter name="PMP Store Password" description="Please provide the PMP Store username" defaultValue="it4gmi" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WsAuth/PmpDbStore/@pass" />
+  </parameter>
+
+  <parameter name="Offer Service API User" description="Please provide the offer service API user" defaultValue="hummingbird" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/apiuser/@username" />
+  </parameter>
+
+  <parameter name="Offer Service APIUser password" description="Please provide the offer service APIuser password" defaultValue="#@y^77*YQ][yet$" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/apiuser/@password" />
+  </parameter>
+
+  <parameter name="Offer Service APIUser key" description="Please provide the offer service APIuser key" defaultValue="sk4b8430fb90995" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/apiuser/@key" />
+  </parameter>
+
+  <parameter name="LiveMatch Endpoint Address" description="Please provide the endpoint for LiveMatch." defaultValue="http://devvpdsws01.corp.gmi.lcl/LiveMatchHistory/LiveMatchHistory.ashx" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/services/service[@name='LiveMatch']/@endpoint" />
+  </parameter>
+
+  <parameter name="Respondent Catalog Endpoint Address" description="Please provide the endpoint for Respondent Catalog." defaultValue="http://10.74.2.189/Setsampler/api/thirdparty/respondent.php" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/services/service[@name='RespondentCatalog']/@endpoint" />
+  </parameter>
+  
+  <!-- Log4net Configuration File parameters -->
+    <parameter name="SNMP Agent" description="Please provide the hostname for SNMP Agent" defaultValue="devmon01.corp.gmi.lcl" tags="">
+    <parameterEntry kind="XmlFile" scope="log4net.config" match="/log4net/appender[@name='SNMPAppender']/Agent/@value" />
+    </parameter>
+    
+    <parameter name="File Log Level" description="Please provide the log level for the WebAPI log files" defaultValue="DEBUG" tags="">
+    <parameterEntry kind="XmlFile" scope="log4net.config" match="/log4net/appender[@name='LogFileAppender']/filter/levelMin/@value" />
+    </parameter>
+    
+<parameter name="Monitor Log Level" description="Please provide the log level for the monitor log files" defaultValue="DEBUG" tags="">
+    <parameterEntry kind="XmlFile" scope="log4net.config" match="/log4net/logger[@name='MonitorLogger']/level/@value" />
+    <parameterEntry kind="XmlFile" scope="log4net.config" match="/log4net/logger[@name='Monitor']/level/@value" />
+    </parameter>
+</parameters>

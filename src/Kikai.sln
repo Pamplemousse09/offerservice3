@@ -1,0 +1,119 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.Domain", "Kikai.Domain\Kikai.Domain.csproj", "{E9BDB2B9-EF38-4814-9CA3-82CD0EB00249}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F} = {DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.BL", "Kikai.BL\Kikai.BL.csproj", "{0A9680D7-B49A-4E7B-9846-F8F9D6EC1A09}"
+	ProjectSection(ProjectDependencies) = postProject
+		{800C2665-AF40-4CEB-A8FC-96656EF81E6B} = {800C2665-AF40-4CEB-A8FC-96656EF81E6B}
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F} = {DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.WebAPI", "Kikai.WebAPI\Kikai.WebAPI.csproj", "{61FC7286-6D8C-4837-BF87-0D54600C20D4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F} = {DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.WebAdmin", "Kikai.WebAdmin\Kikai.WebAdmin.csproj", "{9E4D568B-5EE1-4104-B288-8D707AFFEE34}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3CDC1798-872D-4051-BF09-4B6124B9A548} = {3CDC1798-872D-4051-BF09-4B6124B9A548}
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F} = {DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.Internal", "Kikai.Internal\Kikai.Internal.csproj", "{800C2665-AF40-4CEB-A8FC-96656EF81E6B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F} = {DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.Internal.Contracts", "Kikai.Internal.Contracts\Kikai.Internal.Contracts.csproj", "{4250DEB4-8DF7-4E09-AE1E-621E0E0E010F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F} = {DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.WebAPI.Test", "Kikai.WebAPI.Test\Kikai.WebAPI.Test.csproj", "{D6BBFB90-FE03-4ABE-B211-4E75CE264970}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F} = {DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C77413C4-A124-4C67-A2AB-A783DA30362A}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.Logging", "Kikai.Logging\Kikai.Logging.csproj", "{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.Common", "Kikai.Common\Kikai.Common.csproj", "{3CDC1798-872D-4051-BF09-4B6124B9A548}"
+	ProjectSection(ProjectDependencies) = postProject
+		{800C2665-AF40-4CEB-A8FC-96656EF81E6B} = {800C2665-AF40-4CEB-A8FC-96656EF81E6B}
+		{4250DEB4-8DF7-4E09-AE1E-621E0E0E010F} = {4250DEB4-8DF7-4E09-AE1E-621E0E0E010F}
+		{E9BDB2B9-EF38-4814-9CA3-82CD0EB00249} = {E9BDB2B9-EF38-4814-9CA3-82CD0EB00249}
+		{0A9680D7-B49A-4E7B-9846-F8F9D6EC1A09} = {0A9680D7-B49A-4E7B-9846-F8F9D6EC1A09}
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F} = {DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.OfferService", "Kikai.OfferService\Kikai.OfferService.csproj", "{47D077EF-DE1E-4BF6-8EE9-93A92791A991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kikai.InternalAPI", "Kikai.InternalAPI\Kikai.InternalAPI.csproj", "{8C561DF1-0356-48E9-8E63-D509B0FE1E85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9BDB2B9-EF38-4814-9CA3-82CD0EB00249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BDB2B9-EF38-4814-9CA3-82CD0EB00249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BDB2B9-EF38-4814-9CA3-82CD0EB00249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BDB2B9-EF38-4814-9CA3-82CD0EB00249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9680D7-B49A-4E7B-9846-F8F9D6EC1A09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9680D7-B49A-4E7B-9846-F8F9D6EC1A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9680D7-B49A-4E7B-9846-F8F9D6EC1A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9680D7-B49A-4E7B-9846-F8F9D6EC1A09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FC7286-6D8C-4837-BF87-0D54600C20D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FC7286-6D8C-4837-BF87-0D54600C20D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FC7286-6D8C-4837-BF87-0D54600C20D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FC7286-6D8C-4837-BF87-0D54600C20D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E4D568B-5EE1-4104-B288-8D707AFFEE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E4D568B-5EE1-4104-B288-8D707AFFEE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E4D568B-5EE1-4104-B288-8D707AFFEE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E4D568B-5EE1-4104-B288-8D707AFFEE34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{800C2665-AF40-4CEB-A8FC-96656EF81E6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{800C2665-AF40-4CEB-A8FC-96656EF81E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{800C2665-AF40-4CEB-A8FC-96656EF81E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{800C2665-AF40-4CEB-A8FC-96656EF81E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4250DEB4-8DF7-4E09-AE1E-621E0E0E010F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4250DEB4-8DF7-4E09-AE1E-621E0E0E010F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4250DEB4-8DF7-4E09-AE1E-621E0E0E010F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4250DEB4-8DF7-4E09-AE1E-621E0E0E010F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6BBFB90-FE03-4ABE-B211-4E75CE264970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6BBFB90-FE03-4ABE-B211-4E75CE264970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6BBFB90-FE03-4ABE-B211-4E75CE264970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6BBFB90-FE03-4ABE-B211-4E75CE264970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB891BFE-8150-4F6F-B0B2-E8AF40F1BB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDC1798-872D-4051-BF09-4B6124B9A548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDC1798-872D-4051-BF09-4B6124B9A548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDC1798-872D-4051-BF09-4B6124B9A548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDC1798-872D-4051-BF09-4B6124B9A548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47D077EF-DE1E-4BF6-8EE9-93A92791A991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47D077EF-DE1E-4BF6-8EE9-93A92791A991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47D077EF-DE1E-4BF6-8EE9-93A92791A991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47D077EF-DE1E-4BF6-8EE9-93A92791A991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C561DF1-0356-48E9-8E63-D509B0FE1E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C561DF1-0356-48E9-8E63-D509B0FE1E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C561DF1-0356-48E9-8E63-D509B0FE1E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C561DF1-0356-48E9-8E63-D509B0FE1E85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

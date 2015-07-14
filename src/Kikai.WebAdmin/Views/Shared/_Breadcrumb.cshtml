@@ -1,0 +1,38 @@
+﻿@{
+    string baseurl = Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl();
+    string controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+    string action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+
+
+
+    var controllerLabel = controller;
+
+    if (controller != "Home")
+    {
+        controllerLabel += "s";
+    }
+
+}
+<ol class="breadcrumb">
+    <li><a href="#">Offer Service</a></li>
+    <li><a href="@baseurl/@controller">@controllerLabel</a></li>
+    @if (action != "Index")
+    {
+        <li class="active">
+            <a href="#">
+                @action
+                @if (action == "Edit" || action == "View")
+                {
+                    if (controller == "Offer")
+                    {
+                        <span id="item-title"> @controller @Model.Title</span>
+                    }
+                    else if (controller == "Provider")
+                    {
+                        <span> @controller @Model.Name</span>
+                    }
+                }
+            </a>
+        </li>
+    }
+</ol>

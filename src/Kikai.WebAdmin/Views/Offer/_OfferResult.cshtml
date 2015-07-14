@@ -1,0 +1,133 @@
+﻿@model Kikai.WebAdmin.UIModels.OfferModel
+@using Kikai.Domain.Common
+@using OSUser = Kikai.WebAdmin.Managers.User;
+
+@{    
+    var canAddSamples = OSUser.CanAddSamples();
+    var canEditOffers = OSUser.CanEditOffers();
+    var totalRows = (@Model.Offers.Count > 0) ? Model.Offers.First().FromTotalRows : 0;
+<div style="clear: both">
+    <div id="add-samples-container" style="float: left;">
+        <strong>
+            Import samples from study
+        </strong>
+        <button @( !canAddSamples ? "disabled=disabled" : "") class="btn btn-default @( !canAddSamples ? "permission-tooltip" : "")" id="add-sample-from-study-button" data-toggle="modal" data-target="#myModal" style="margin-left: 5px;">
+            Add Samples<span class="tooltip-add-samples-permission">You do not have the required permissions to add samples.</span>
+        </button>
+        </div>
+    <div id="total-rows">Total:  @totalRows Offer(s)</div>
+</div>    
+    if (Model.Offers.Count > 0)
+    {
+        var grid = new WebGrid(
+                canPage: true,
+                rowsPerPage: Model.PageSize,
+                canSort: true,
+                ajaxUpdateContainerId: "grid", 
+                ajaxUpdateCallback: "OfferResultCallBack"
+            );
+        grid.Bind(Model.Offers, rowCount: Model.Offers.FirstOrDefault().FromTotalRows, autoSortAndPage: false);
+        grid.Pager(WebGridPagerModes.All);
+        @grid.GetHtml(htmlAttributes: new { id = "grid" },
+                    fillEmptyRows: false,
+                    tableStyle: "table",
+                    mode: WebGridPagerModes.All,
+                    firstText: "<< First page",
+                    previousText: "< Previous page",
+                    nextText: "Next page >",
+                    lastText: "Last page >>",
+                    columns: grid.Columns(
+                         grid.Column("StudyId", "Study Id", format: @<span id="offer-element-study-id-@item.OfferId">@item.StudyId</span>),
+                         grid.Column("SampleId", "Sample Id", format: @<span id="offer-element-sample-id-@item.OfferId">@item.SampleId</span>),
+                         grid.Column("Title", "Title", format: (item) =>
+                             {
+                                 if (item.Title != null)
+                                     return Html.Raw("<span id=\"offer-element-title-" + item.OfferId + "\">" + item.Title + "</span>");
+                                 else
+                                     return Html.Raw("<span id=\"offer-element-title-" + item.OfferId + "\"><em style='color: #F00;'>Title is not set</em></span>");
+                             }),
+                         grid.Column("Description", "Description",format: (item) =>
+                             {
+                                 var maxChar = 50;
+                                 var description = (!String.IsNullOrEmpty(item.Description) && item.Description.Length > maxChar) ? item.Description.Substring(0, maxChar) + "[...]" : item.Description;
+                                 return Html.Raw("<span id=\"offer-element-description-" + item.OfferId + "\">" + description + "</span>");
+                             }),
+                         grid.Column("StudyStartDate", "Start Date", format: @<span id="offer-element-start-date-@item.OfferId">@String.Format("{0:M/d/yyyy HH:mm}", item.StudyStartDate)</span>),
+                         grid.Column("StudyEndDate", "End Date", format: (item) => {
+                            var StudyEndDate = (item.StudyEndDate != null) ? String.Format("{0:M/d/yyyy HH:mm}", item.StudyEndDate) : item.StudyEndDate;
+                            var htmlString =  "<span id=\"offer-element-end-date-@item.OfferId\">" +  StudyEndDate + "</span>";
+                            return Html.Raw(htmlString);    
+                         }),
+                         grid.Column("CPI", "CPI", format: (item) =>
+                             {
+                                 var CPI = (item.CPI != null) ? item.CPI.ToString("0.00") : "";
+                                 var htmlString = "<div class=\"cpi-field-container\"><input type=\"text\" class=\"form-control cpi-field field-red\" id=\"offer-element-set-cpi-value-" + item.OfferId + "\"" + (canEditOffers ? " onkeypress=\"SetCPIEnter(event, this)\"" : "disabled=disabled") + " placeholder=\"None\" value='" + CPI + "'/></div>" +
+                                     "<button " + ( !canEditOffers ? "disabled=disabled" : "") + " class='btn btn-default set-cpi-btn " + ( !canEditOffers ? "permission-tooltip" : "") + "' id=\"offer-element-set-cpi-button-" + item.OfferId + "\" onclick=\"SetCPI('" + item.OfferId + "')\">Set <span class=\"tooltip-add-samples-permission\">You do not have the required permissions to edit offers.</span></button>";
+                                 return Html.Raw(htmlString);
+                             }, style: "col-lg-1"),
+                         grid.Column("LOI", "LOI", format: @<span id="offer-element-loi-@item.OfferId">@item.LOI</span>, style: "centered"),
+                         grid.Column("IR", "IR", format: @<span id="offer-element-ir-@item.OfferId">@item.IR%</span>, style: "centered"),
+                         grid.Column("QuotaRemaining", "Quota Remain.", format: @<span id="offer-element-quota-remaining-@item.OfferId">@item.QuotaRemaining</span>, style: "centered"),
+                         grid.Column("Status", "Status", format: (item) =>
+                            {
+                                var htmlString = "<span id=\"offer-element-status-" + @item.OfferId + "\" class=\"status-label {1}\" >{0}</span>";
+                                if (item.Status == (int)OfferStatus.Inactive)
+                                    return Html.Raw(String.Format(htmlString, "Inactive", "purple"));
+                                else if (item.Status == (int)OfferStatus.Active)
+                                    return Html.Raw(String.Format(htmlString, "Active", "green"));
+                                else if (item.Status == (int)OfferStatus.Suspended)
+                                    return Html.Raw(String.Format(htmlString, "Suspended", "red"));
+                                else if (item.Status == (int)OfferStatus.Pending)
+                                    return Html.Raw(String.Format(htmlString, "Pending", "blue"));
+                                else
+                                    return Html.Raw(String.Format(htmlString, "Unknown", ""));
+                            }),
+                        grid.Column("TestOffer", "Type", format: (item) =>
+                            {
+                                var htmlString = "<span id=\"offer-element-type-" + @item.OfferId + "\">{0}</span>";
+                                if (item.TestOffer)
+                                    return Html.Raw(String.Format(htmlString, "Test"));
+                                else
+                                    return Html.Raw(String.Format(htmlString, "Live"));
+                            }
+                        ),
+                        grid.Column("", "", format: (item) =>
+                        {
+                            var editlink = string.Empty;
+                            if (canEditOffers)
+                                editlink = Html.ActionLink("Edit", "Edit", new { id = item.OfferId }, new { @id = "edit-link-" + item.OfferId }).ToHtmlString();                                
+                            else
+                                editlink = "<a href=\"#\" class=\"permission-tooltip\">Edit<span class=\"tooltip-add-samples-permission\">You do not have the required permissions to edit offers.</span></a>";                                
+                            var links = Html.ActionLink("View", "View", new { id = item.OfferId }, new { @id = "view-link-" + item.OfferId }) + " | " +
+                                        editlink + " | " +
+                                        "<a href=\"\" id=\"" + @item.OfferId + "-terms-history\" class=\"terms-history\" data-toggle=\"modal\" data-target=\"#termsWindow\" onclick=\"SearchTerms('" + item.OfferId + "')\">Terms History</a>";
+
+                            return Html.Raw(links);
+                        })
+           ));
+
+
+    }
+    else
+    {
+        <table class="table" id="grid">
+            <tr>
+                <th>Study Id</th>
+                <th>Sample Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>CPI</th>
+                <th>LOI</th>
+                <th>IR</th>
+                <th>Quota Remain.</th>
+                <th>Status</th>
+                <th>Type</th>
+            </tr>
+            <tr>
+                <td colspan="12">No results found.</td>
+            </tr>
+        </table>
+    }
+}

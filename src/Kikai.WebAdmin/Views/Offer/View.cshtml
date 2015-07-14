@@ -1,0 +1,177 @@
+﻿@model Kikai.BL.DTO.OfferObject
+@using OSUser = Kikai.WebAdmin.Managers.User;
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section scripts {
+    @Scripts.Render(Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl() + "/bundles/offerview");
+}
+
+<script src="@Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl()/Scripts/ZeroClipboard.js"></script>
+
+<input type="text" value="@Model.Id" hidden id="offer_view_id" />
+
+<div id="copied-msg">
+    Offer Link has been copied to the clipboard.
+</div>
+
+
+<div class="row">
+    <dl class="dl-horizontal col-lg-6">
+        <dt>
+            Title
+        </dt>
+
+        <dd>
+            @Model.Title
+        </dd>
+
+        <dt>
+            Topic
+        </dt>
+
+        <dd>
+            @Model.Topic
+        </dd>
+
+        <dt>
+            Description
+        </dt>
+
+        <dd>
+            @Model.Description
+        </dd>
+
+        <dt>
+            LOI
+        </dt>
+
+        <dd>
+            @Model.LOI
+        </dd>
+
+        <dt>
+            IR
+        </dt>
+
+        <dd>
+            @Model.IR
+        </dd>
+
+        <dt>
+            Status
+        </dt>
+        <dd>
+            <span>
+                @switch (Model.Status)
+                {
+                    case 0:
+                        <span>Inactive</span>
+                        break;
+                    case 1:
+                    <span>Active</span>
+                        break;
+                    case 2:
+                    <span>Suspended</span>
+                        break;
+                    case 3:
+                    <span>Pending</span>
+                        break;
+                }
+            </span>
+        </dd>
+        <dt>
+            Type
+        </dt>
+        <dd>
+            <span>
+                @if ((bool)Model.TestOffer)
+                {
+                    <span>Test</span>
+                }
+                else
+                {
+                    <span>Live</span>
+                }
+            </span>
+        </dd>
+        <dt>
+            Offer Link
+        </dt>
+
+        <dd id="offer-link-field">
+            <span id="offer-link">
+                @try
+                {
+                    var OfferLink = string.Format(@Model.OfferLink, @Model.Id, Model.Terms.Where(t => t.Active == true).FirstOrDefault().Id, "E_[COUNTRYCODE]_[PROVIDERCODE]&id=[ID]");
+                    <span>@OfferLink</span>
+                    <div id="copy-to-clipboard" data-clipboard-text="@OfferLink" title="Click here to copy offer link."><img src="@Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl()/Content/img/ctc.jpg" width="30"></div>
+                }
+                catch
+                {
+                    var OfferLink = string.Format(@Model.OfferLink, @Model.Id, "{0}", "E_[COUNTRYCODE]_[PROVIDERCODE]&id=[ID]");
+                    <span>@OfferLink</span>
+                    <div id="copy-to-clipboard" data-clipboard-text="@OfferLink" title="Click here to copy offer link."><img src="@Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl()/Content/img/ctc.jpg" width="30"></div>
+                }
+            </span>
+
+        </dd>
+
+        <dt>
+            Quota Remaining
+        </dt>
+        <dd>
+            @Model.QuotaRemaining
+        </dd>
+        <dt>
+            Offer Start Date
+        </dt>
+        <dd>
+            @Model.StudyStartDate
+        </dd>
+        <dt>
+            Offer End Date
+        </dt>
+        <dd>
+            @Model.StudyEndDate
+        </dd>
+        <dt>
+            CPI
+        </dt>
+        <dd>
+            <span>
+                @try
+                {
+                    var cpi = (float)Model.Terms.Where(t => t.Active == true && t.OfferId == Model.Id).FirstOrDefault().CPI;
+                    <span>@cpi.ToString("0.00")</span>
+                }
+                catch
+                {
+                    <span style="color: #F00"><i>Not set</i></span>
+                }
+            </span>
+        </dd>
+
+    </dl>
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <div class="row" id="AttributesResult">
+
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    @if(OSUser.CanEditOffers())
+    {
+        @Html.ActionLink("Edit", "Edit/" + Model.Id + "", new { controller = "Offer" })
+    }
+    else
+    {
+        <a href="#" class="permission-tooltip">Edit<span class="tooltip-add-samples-permission">You do not have the required permissions to edit offers.</span></a>        
+    }
+    |
+    @Html.ActionLink("Back to Offers", "Index", new { controller = "Offer" })
+</p>

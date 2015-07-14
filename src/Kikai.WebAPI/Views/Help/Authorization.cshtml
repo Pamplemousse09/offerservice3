@@ -1,0 +1,105 @@
+﻿@using System.Web.Http
+@using LSR.Security
+@using LSR.Security.Utils
+
+@{
+    ViewBag.Title = "LSR Webservice Authentication";
+    string user = "TestUser", pass = "TestPassword", key = "TestKey", date = DateTime.UtcNow.ToString("yyyy-MM-dd HH");
+    HourlyDigest hourlyDigest = new HourlyDigest(user, pass, key);
+    string encodedPassword = new CryptographyUtil().CalculateMD5(pass).Substring(0, 10);
+}
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper" style="margin-bottom:15px;">
+            <h3>Request Authorization</h3>
+            <p>
+                All calls to Lightspeed GMI Webservice need to be authenticated and authorized. Prior to calling a
+                service you will need to obtain an api username, password, and secret key. Please contact our support
+                desk, ##some_email##, to obtain your credentials.
+            </p>
+
+            <h3>Request Signing</h3>
+            <p>
+                Requests should be signed by sending a standard HTTP Authorization Header. The scheme should be set to
+                "LSR-DIGEST" and include parameters for ApiUser and SharedSecret. A raw header looks like this:
+            </p>
+
+            <blockquote><b><i>Authorization: LSR-DIGEST ApiUser=@user, SharedSecret=@hourlyDigest.CalculateDigest(DateTime.UtcNow)</i></b></blockquote>
+
+            <h3>SharedSecret Details</h3>
+            <p>
+                The shared secret is a expiring MD5 hash based on your api credentials and the current time in UTC. Each
+                key is valid for an hour. There is a grace period of 5 minutes at the top of the hour to allow for slight
+                differences in server times.
+            </p>
+
+            <h4>SharedSecret Inputs</h4>
+            <table>
+                <tr>
+                    <td><b>ApiUser</b></td>
+                    <td> | </td>
+                    <td>LSR supplied username</td>
+                </tr>
+                <tr>
+                    <td><b>ApiPassword</b></td>
+                    <td> | </td>
+                    <td>LSR supplied password</td>
+                </tr>
+                <tr>
+                    <td><b>ApiKey</b></td>
+                    <td> | </td>
+                    <td>LSR supplied secret key</td>
+                </tr>
+                <tr>
+                    <td><b>CurrentHour</b></td>
+                    <td> | </td>
+                    <td>ISO 8601 Format with the "T" removed, [YYYY-MM-DD HH].</td>
+                </tr>
+            </table>
+
+            <h4>SharedSecret Calculation</h4>
+            <p>
+                The shared secret is two-step hashing process. First, the ApiPassword is MD5-hashed and the first 10 characters
+                are saved. The ApiUser, ApiKey, CurrentHour, and hashed password from the first step are then concatenated with
+                a colon and MD5-hashed. Psuedo code for the algorithm looks like this:<br />
+            </p>
+            <blockquote>MD5(ApiUser:ApiKey:CurrentHour:Substring(MD5(ApiPassword),0,10))</blockquote>
+
+            <p>
+                The calculation is sensitive to slight changes in the inputs. To help troubleshoot, the following shows the shared secret information for a sample api user. When generating
+                the shared secret in client code, it should be able to match the values below with the given inputs.
+            </p>
+            <table>
+                <tr>
+                    <td><b>ApiUser</b></td>
+                    <td>@user</td>
+                </tr>
+                <tr>
+                    <td><b>ApiPassword</b></td>
+                    <td>@pass</td>
+                </tr>
+                <tr>
+                    <td><b>ApiKey</b></td>
+                    <td>@key</td>
+                </tr>
+                <tr>
+                    <td><b>CurrentHour</b></td>
+                    <td>@date</td>
+                </tr>
+                <tr>
+                    <td><b>Password Hash</b></td>
+                    <td>@encodedPassword</td>
+                </tr>
+                <tr>
+                    <td><b>String for secret</b></td>
+                    <td>@user:@key:@date:@encodedPassword</td>
+                </tr>
+                <tr>
+                    <td><b>SharedSecret</b></td>
+                    <td>@hourlyDigest.CalculateDigest(DateTime.UtcNow)</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,212 @@
+﻿@using System.Xml.Linq
+@{
+    ViewBag.Title = "Lightspeed GMI Offer Service Documentation";
+}
+<header>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>API Documentation</h1>
+        </div>
+    </div>
+</header>
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <p>
+                Lightspeed GMI API integration help our customers quickly and easily find high value offers for their respondents.
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+
+        <section id="liveoffersapi">
+            <h2>LiveOffers</h2>
+            <p>
+                LiveOffers API can be used to retrieve <b><a href="#LIVEOFFER" title="A LIVE offer is an opportunity which is exposed publicly to all Lightspeed GMI customers">LIVE</a></b> offers/opportunities currently active and mainstream enabled in Lightspeed GMI platform.
+            </p>
+            <table class="help-page-table">
+                <thead>
+                    <tr>
+                        <th>API</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="api-name">
+                            @Html.ActionLink("GET api/public/LiveOffers", "LiveOffersAPI", "Help")
+                        </td>
+                        <td class="api-documentation">
+                            <p>
+                                Returns a collection of active offers suitable for displaying on an offer wall filtered by request attributes.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="api-name">
+                            @Html.ActionLink("GET api/public/LiveOffers?pid={pid}", "LiveOffersPIDAPI", "Help")
+                        </td>
+                        <td class="api-documentation">
+                            <p>
+                                Returns a collection of active offers suitable for displaying on an offer wall filtered by Pid and request attributes.
+                                Currently the language and country parameters are required. They are not present in the API Uri because the set of required attributes is configurable and can change.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="api-name">
+                            @Html.ActionLink("GET api/public/LiveOffers/{OfferId}/Attributes", "LiveOffersAttributesAPI", "Help")
+                        </td>
+                        <td class="api-documentation">
+                            <p>
+                                Returns the list of the respondent attributes for a specified active offer ID.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="api-name">
+                            @Html.ActionLink("GET api/public/LiveOffers/{OfferId}/QuotaCells","LiveOffersQuotaCellsAPI","Help")
+                        </td>
+                        <td class="api-documentation">
+                            Returns a collection of quota expressions for a specified active offer ID.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="testoffersapi">
+            <h2>TestOffers</h2>
+            <p>
+                TestOffers API can be used to retrieve <b><a href="#TESTOFFER" title="A TEST offer is an opportunity which is exposed only to certain customers for testing purposes">TEST</a></b> offers/opportunities currently active and mainstream enabled in Lightspeed GMI platform.
+            </p>
+            <table class="help-page-table">
+                <thead>
+                    <tr>
+                        <th>API</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="api-name">
+                            @Html.ActionLink("GET api/public/TestOffers", "TestOffersAPI", "Help")
+                        </td>
+                        <td class="api-documentation">
+                            <p>
+                                Returns a collection of active offers suitable for displaying on an offer wall filtered by request attributes.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="api-name">
+                            @Html.ActionLink("GET api/public/TestOffers?pid={pid}", "TestOffersPIDAPI", "Help")
+                        </td>
+                        <td class="api-documentation">
+                            <p>
+                                Returns a collection of active offers suitable for displaying on an offer wall filtered by Pid and request attributes. Currently the language and country parameters are required. They are not present in the API Uri because the set of required attributes is configurable and can change.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="api-name">
+                            @Html.ActionLink("GET api/public/TestOffers/{OfferId}/Attributes", "TestOffersAttributesAPI", "Help")
+                        </td>
+                        <td class="api-documentation">
+                            <p>
+                                Returns the list of the respondent attributes for a specified active offer ID.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="api-name">
+                            @Html.ActionLink("GET api/public/TestOffers/{OfferId}/QuotaCells", "TestOffersQuotaCellsAPI", "Help")
+                        </td>
+                        <td class="api-documentation">
+                            Returns a collection of quota expressions for a specified active offer ID.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="attributesapi">
+            <h2>Attributes</h2>
+            <p>
+                This class will handle all the requests sent by the providers to retrieve Code Book attribute.
+            </p>
+            <table class="help-page-table">
+                <thead>
+                    <tr>
+                        <th>API</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td class="api-name">
+                        @Html.ActionLink("GET api/public/Attributes", "AttributesAPI", "Help")
+                    </td>
+                    <td class="api-documentation">
+                        <p>
+                            Returns a collection of published attributes.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="api-name">
+                        @Html.ActionLink("GET api/public/Attributes/{AttributeId}", "AttributeIdAPI", "Help")
+                    </td>
+                    <td class="api-documentation">
+                        <p>
+                            Returns information about a specific attribute.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section id="errorcodes">
+            <h2>Error Codes</h2>
+            <p>
+                The following table describes the codes that may appear when working with the different APIs.
+            </p>
+            <table class="help-page-table" style="margin-bottom: 7px;">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        string path = AppDomain.CurrentDomain.BaseDirectory + "bin\\Resource\\Values\\strings.xml";
+                        XDocument XmlMessages = XDocument.Load(path);
+                        List<XElement> ErrorsList = XmlMessages.Root.Elements().ToList();
+                    }
+                    @foreach (var error in ErrorsList)
+                    {
+                        var ErrorCode = error.Attribute("Code").Value;
+                        var ErrorMessage = error.Attribute("Message").Value;;
+                        var ErrorShowInHelpPage = error.Attribute("ShowInHelpPage").Value;
+                        if(Convert.ToBoolean(ErrorShowInHelpPage))
+                        {
+                            if (ErrorMessage.Contains("ApiUser") || ErrorMessage.Contains("OfferId") || ErrorMessage.Contains("TermId") || ErrorMessage.Contains("AttributeId"))
+                            {
+                                ErrorMessage = ErrorMessage.Replace("ApiUser", "{0}");
+                                ErrorMessage = ErrorMessage.Replace("OfferId", "{0}");
+                                ErrorMessage = ErrorMessage.Replace("TermId", "{0}");
+                                ErrorMessage = ErrorMessage.Replace("AttributeId", "{0}");
+                            }
+                            <tr>
+                                <td class="api-name">
+                                    @ErrorCode
+                                </td>
+                                <td class="api-documentation">
+                                    @ErrorMessage
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <span style="display:inline-block;margin-bottom:15px;"><i>{0} represents a variable that will be replaced by an appropriate value according to the request.</i></span>
+        </section>
+    </section>
+</div>

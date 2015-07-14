@@ -1,0 +1,63 @@
+﻿@using System.Xml.Linq
+@using System.Xml
+@{
+    ViewBag.Title = "Lightspeed GMI Offer Service FAQ";
+}
+@Scripts.Render("~/bundles/faq-jquery")
+
+<link href="@Url.Content("~/Content/FAQ.css")" rel="stylesheet" type="text/css" />
+@{
+    string path = AppDomain.CurrentDomain.BaseDirectory + "bin\\Resource\\Values\\FAQ.xml";
+    XDocument FAQDoc = XDocument.Load(path);
+    List<XElement> FAQList = FAQDoc.Root.Elements().ToList();
+}
+<header>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>Lightspeed GMI Offer Service FAQ</h1>
+        </div>
+    </div>
+</header>
+<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+        <p>
+            The following table describes some of the frequently asked questions that may appear when working with the different APIs.
+        </p>
+        <section class="cd-faq">
+            <ul class="cd-faq-categories">
+                @foreach (var groupName in FAQList.Elements("name").Select((element, i) => new { element, i }))
+                {
+                    if (groupName.i == 0)
+                    {
+                        <li><a class="selected" href="#@groupName.element.Value.ToLower()">@groupName.element.Value</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#@groupName.element.Value.ToLower()">@groupName.element.Value</a></li>
+                    }
+                }
+            </ul> <!-- cd-faq-categories -->
+            <div class="cd-faq-items">
+                @foreach (var group in FAQList)
+                {
+                    var groupName = group.Element("name").Value;
+                    var groupQuestions = group.Elements("questions").Elements().ToList();
+                    <ul id="@groupName.ToLower()" class="cd-faq-group">
+                        <li class="cd-faq-title"><h2>@groupName</h2></li>
+                        @foreach (var question in groupQuestions)
+                        {
+                            var q = question.Attribute("Question").Value;
+                            var a = question.Attribute("Answer").Value;
+                            <li>
+                                <a class="cd-faq-trigger" href="#0">@q</a>
+                                <div class="cd-faq-content">
+                                    <p>@a</p>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </section>
+    </section>
+</div>

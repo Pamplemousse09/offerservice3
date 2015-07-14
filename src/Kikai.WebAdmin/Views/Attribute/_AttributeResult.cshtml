@@ -1,0 +1,75 @@
+﻿@model Kikai.WebAdmin.UIModels.AttributeModel
+@using System.Linq
+@using System.Collections.Generic
+@section scripts {
+    @Scripts.Render(Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl() + "/bundles/attribute")
+}
+
+@{
+
+    if (Model.Attributes.Count > 0)
+    {
+        <div id="total-rows">Total: @Model.Attributes.First().FromTotalRows Attribute(s)</div>
+        var grid = new WebGrid(
+                canPage: true,
+                rowsPerPage: Model.PageSize,
+                canSort: false,
+                ajaxUpdateContainerId: "grid",
+                ajaxUpdateCallback: "AttributeResultCallBack"
+            );
+        grid.Bind(Model.Attributes, rowCount: Model.Attributes.FirstOrDefault().FromTotalRows, autoSortAndPage: false);
+        grid.Pager(WebGridPagerModes.All);
+        @grid.GetHtml(htmlAttributes: new { id = "grid" },
+                    fillEmptyRows: false,
+                    tableStyle: "table",
+                    mode: WebGridPagerModes.All,
+                    firstText: "<< First page",
+                    previousText: "< Previous page",
+                    nextText: "Next page >",
+                    lastText: "Last page >>",
+                    columns: grid.Columns(
+                    grid.Column("AttributeId", "Id", format: @<span id="attribute-element-id-@item.AttributeId">@item.AttributeId</span>),
+                        grid.Column("Label", "Label", format: (item) =>
+                            {
+                                var htmlString = "<span id=\"attribute-element-label-" + @item.AttributeId + "\">" + @item.Label + " - {0}</span>";
+                                if (item.Status)
+                                    return Html.Raw(String.Format(htmlString, "<span id=\"attribute-element-status-label-" + item.AttributeId + "\" class=\"green\">Published</span>"));
+                                else
+                                    return Html.Raw(String.Format(htmlString, "<span id=\"attribute-element-status-label-" + item.AttributeId + "\" class=\"red\">Unpublished</span>"));
+                            }),
+                        grid.Column("Status", "Status", format: (item) =>
+                            {
+                                var htmlString = "<input type=\"checkbox\" {0} {1} {2} id=\"attribute-element-status-" + @item.AttributeId + "\" class=\"publish-action\" />";
+                                if (item.Status)
+                                {
+                                    if (new Kikai.Domain.Common.Constants().SupportedAttributes.Contains(item.AttributeId))
+                                        return Html.Raw("<span class='glyphicon green'><input type=\"checkbox\" disabled checked id=\"attribute-element-status-" + @item.AttributeId + "\" class=\"publish-action\" /><span class='msg-glyphicon'>This attribute cannot be un-published as it is defined as a SAM auto-managed attribute in the offer service configuration.</span></span>");
+                                    else
+                                        return Html.Raw(String.Format(htmlString, "checked", "", "onclick=\"PublishAction('" + item.AttributeId + "', '" + @Url.Content("~/Content/img/ajax-loader.gif") + "')\""));
+                                }
+                                else
+                                {
+                                    return Html.Raw(String.Format(htmlString, "", "", "onclick=\"PublishAction('" + item.AttributeId + "', '" + @Url.Content("~/Content/img/ajax-loader.gif") + "')\""));
+                                }
+                            }
+                        ),
+                        grid.Column("Last_Updated_By", "Updated By", format: @<span id="attribute-element-updated-by-@item.AttributeId">@item.Last_Updated_By</span>)
+                                                                                                                                                 ));
+
+
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Status</th>
+                <th>Updated By</th>
+            </tr>
+            <tr>
+                <td colspan="4">No results found.</td>
+            </tr>
+        </table>
+    }
+}

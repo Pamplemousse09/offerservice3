@@ -1,0 +1,26 @@
+﻿.body-content a {
+    color: #65A443  !important;
+}
+
+.breadcrumb li:last-child a{
+    color: #65A443 !important;
+}
+
+#menu-container .navbar {
+    border-bottom: 1px solid rgba(101, 164, 67, 1) !important;
+}
+
+.navbar-default li.active a,
+.navbar-default li.active a:hover,
+.navbar-default li.active a:focus{
+    background:  rgba(101, 164, 67, 0.8) !important;
+    color: #EEE !important;
+}
+/* edited */
+#search-form > h4 {
+    background: rgba(101, 164, 67, 1) !important;
+}
+
+.table tr th {
+    background: rgba(101, 164, 67, 1) !important;
+}

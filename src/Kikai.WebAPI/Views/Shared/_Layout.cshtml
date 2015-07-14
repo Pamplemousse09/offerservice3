@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("api", required: false)
+    <link href="@Url.Content("~/Content/HelpPage.css")" rel="stylesheet" type="text/css" />
+    @RenderSection("Content", false)
+</head>
+<body>
+    @{
+        bool userIsAuthenticated = User.Identity.IsAuthenticated;
+        bool invalidLogin = (TempData["invalidLogin"] != null) ? true : false;
+    }
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Lightspeed GMI Offer Service", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" id="navigation-menu">
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("FAQ", "FAQ", "Help", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <div>
+                &copy; @DateTime.Now.Year, LIGHTSPEED LLC
+                @if (userIsAuthenticated)
+                {
+                    <span>, @System.Configuration.ConfigurationManager.AppSettings["ReleaseNumber"]</span>
+                }
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

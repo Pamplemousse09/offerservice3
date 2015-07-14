@@ -1,0 +1,221 @@
+﻿@{
+    ViewBag.Title = "GET api/public/LiveOffers";
+}
+
+<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+
+        <h1>GET api/public/LiveOffers</h1>
+        <div>
+            <p>Returns a collection of active offers suitable for displaying on an offer wall filtered by request attributes.</p>
+            <h2>Request Information</h2>
+            <div class="url-example">
+                <b>Example URL: </b> http://offerservice.lightspeedgmiservices.com/api/public/LiveOffers?COREcontact_country=162
+            </div>
+            <br>
+            <div class="url-example">
+                <p>
+                    <h5><b>Header</b></h5>
+                    GET /api/public/LiveOffers?COREcontact_country=162 HTTP/1.1<br>
+                    Host: offerservice.lightspeedgmiservices.com<br>
+                    @Html.ActionLink("Authorization", "Authorization", "Help"): LSR-DIGEST apiuser=4b3a893ae1c35, sharedSecret=9981be30d5f31169b542881acb709c36<br>
+                </p>
+            </div>
+            <br>
+            <table class="help-page-parameters-table">
+                <thead>
+                    <tr><th class="parameter-header"><h5><b>Parameters</b></h5><th></th><th></th><th></th></tr>
+                    <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="parameter-name">{Attribute id}</td>
+                        <td class="parameter-type">string</td>
+                        <td class="parameter-required">No</td>
+                        <td class="parameter-documentation">The id of any attribute. To get the list of published attributes invoke @Html.ActionLink("/api/public/Attributes", "AttributesAPI", "Help")</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+
+            <h2>Response Information</h2>
+            <table class="help-page-parameters-table">
+                <thead>
+                    <tr><th>Property</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="parameter-name">Topic</td>
+                        <td class="parameter-documentation">Type of the offer</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">Title</td>
+                        <td class="parameter-documentation">Short description of the offer</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">Description</td>
+                        <td class="parameter-documentation">More detailed description of the offer</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">LOI</td>
+                        <td class="parameter-documentation">Length of interview in minutes</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">IR</td>
+                        <td class="parameter-documentation">Incidence Rate (1-100)</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">CPI</td>
+                        <td class="parameter-documentation">Amount paid per complete in dollars</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">OfferID</td>
+                        <td class="parameter-documentation">Unique ID of the offer</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">TermID</td>
+                        <td class="parameter-documentation">Unique ID of the active term</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">OfferLink</td>
+                        <td class="parameter-documentation">Beginning link of the offer. Extra parameters may be appended to URI</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">QuotaRemaining</td>
+                        <td class="parameter-documentation">Quota Remaining of the offer</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Response body formats</h3>
+            <div id="container">
+                <input id="tab-1" type="radio" name="tab-group" checked="checked" />
+                <label for="tab-1">JSON</label>
+                <input id="tab-2" type="radio" name="tab-group" />
+                <label for="tab-2">XML</label>
+                <div id="content">
+                    <div id="content-1">
+                        <span><b>Sample for success:</b></span>
+                        <pre class="wrapped">{
+  "Status": true,
+  "Data": {
+    "Offers": [
+      {
+        "Topic": "Offer Topic 1",
+        "Title": "Offer Title 1",
+        "Description": "Offer Description 1",
+        "LOI": 34,
+        "IR": 100,
+        "CPI": 0.12,
+        "OfferID": "9af3d3dd-b94e-4998-ba1e-275384cb54af",
+        "TermID": "b4f51f0d-2509-42a2-9180-4beb55b31076",
+        "OfferLink": "https://devhub.globaltestmarket.com/hub/tplm/welcome?E_165_QAhash170&amp;id=[ID]&amp;oid=9af3d3dd-b94e-4998-ba1e-275384cb54af&amp;tid=b4f51f0d-2509-42a2-9180-4beb55b31076",
+        "QuotaRemaining": 650
+      },
+      {
+        "Topic": "Offer Topic 2",
+        "Title": "Offer Title 2",
+        "Description": "Offer Description 2",
+        "LOI": 15,
+        "IR": 100,
+        "CPI": 1.23,
+        "OfferID": "f14ddaf7-6cce-4042-a6ec-3d4496e138ce",
+        "TermID": "462d0660-752b-4ff0-b808-7ab5bf4e41be",
+        "OfferLink": "https://devhub.globaltestmarket.com/hub/tplm/welcome?E_165_QAhash170&amp;id=[ID]&amp;oid=f14ddaf7-6cce-4042-a6ec-3d4496e138ce&amp;tid=462d0660-752b-4ff0-b808-7ab5bf4e41be",
+        "QuotaRemaining": 100
+      }
+    ],
+    "Errors": null
+  },
+  "Meta": {
+    "Id": "5335a67a-1930-4fde-8d78-c405fbb64b78",
+    "Timestamp": "2015-05-19 12:42:13Z",
+    "Version": "1.0.0.0"
+  }
+}
+</pre>
+                        <span><b>Sample for error:</b></span>
+                        <pre class="wrapped">{
+  "Status": false,
+  "Data": {
+    "Offers": null,
+    "Errors": [
+        {
+            "Code": 2011,
+            "Message": "There are currently no active offers in the offer service. Please try again later."
+        }
+    ]
+  },
+  "Meta": {
+    "Id": "dad16128-ed4a-4f96-b122-cefadf1ad513",
+    "Timestamp": "2015-05-19 12:43:20Z",
+    "Version": "1.0.0.0"
+  }
+}
+</pre>
+                    </div>
+                    <div id="content-2">
+                        <span><b>Sample for success:</b></span>
+                        <pre class="wrapped">&lt;LiveOffersResponse  xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Status&gt;true&lt;/Status&gt;
+  &lt;Data&gt;
+    &lt;Offers&gt;
+      &lt;LiveOffer&gt;
+        &lt;Topic&gt;Offer Topic 1&lt;/Topic&gt;
+        &lt;Title&gt;Offer Title 1&lt;/Title&gt;
+        &lt;Description&gt;Offer Description 1&lt;/Description&gt;
+        &lt;LOI&gt;4&lt;/LOI&gt;
+        &lt;IR&gt;5.1&lt;/IR&gt;
+        &lt;CPI&gt;6.1&lt;/CPI&gt;
+        &lt;OfferID&gt;73916290-5041-41f4-acde-0d05b34a6c3e&lt;/OfferID&gt;
+        &lt;TermID&gt;ba139754-4e59-4751-ad29-70612f40751c&lt;/TermID&gt;
+        &lt;OfferLink&gt;https://devhub.globaltestmarket.com/hub/tplm/welcome?E_165_QAhash170&id=[ID]&oid=9af3d3dd-b94e-4998-ba1e-275384cb54af&tid=b4f51f0d-2509-42a2-9180-4beb55b31076&lt;/OfferLink&gt;
+        &lt;QuotaRemaining&gt;10&lt;/QuotaRemaining&gt;
+      &lt;/LiveOffer&gt;
+      &lt;LiveOffer&gt;
+        &lt;Topic&gt;Offer Topic 2&lt;/Topic&gt;
+        &lt;Title&gt;Offer Title 2&lt;/Title&gt;
+        &lt;Description&gt;Offer Description 2&lt;/Description&gt;
+        &lt;LOI&gt;4&lt;/LOI&gt;
+        &lt;IR&gt;5.1&lt;/IR&gt;
+        &lt;CPI&gt;6.1&lt;/CPI&gt;
+        &lt;OfferID&gt;73916290-5041-41f4-acde-0d05b34a6c3e&lt;/OfferID&gt;
+        &lt;TermID&gt;ba139754-4e59-4751-ad29-70612f40751c&lt;/TermID&gt;
+        &lt;OfferLink&gt;https://devhub.globaltestmarket.com/hub/tplm/welcome?E_165_QAhash170&amp;id=[ID]&amp;oid=f14ddaf7-6cce-4042-a6ec-3d4496e138ce&amp;tid=462d0660-752b-4ff0-b808-7ab5bf4e41be&lt;/OfferLink&gt;
+        &lt;QuotaRemaining&gt;10&lt;/QuotaRemaining&gt;
+      &lt;/LiveOffer&gt;
+    &lt;/Offers&gt;
+    &lt;Errors i:nil="true" /&gt;
+  &lt;/Data&gt;
+  &lt;Meta&gt;
+    &lt;Id&gt;5335a67a-1930-4fde-8d78-c405fbb64b78&lt;/Id&gt;
+    &lt;Timestamp&gt;2015-05-19 12:42:13Z&lt;/Timestamp&gt;
+    &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;/Meta&gt;
+&lt;/LiveOffersResponse&gt;
+</pre>
+                        <span><b>Sample for error:</b></span>
+                        <pre class="wrapped">&lt;LiveOffersResponse xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Status&gt;false&lt;/Status&gt;
+  &lt;Data&gt;
+    &lt;Offers i:nil="true" /&gt;
+    &lt;Errors&gt;
+        &lt;Item&gt;
+            &lt;Code&gt;2011&lt;/Code&gt;
+            &lt;Message&gt;There are currently no active offers in the offer service. Please try again later.&lt;/Message&gt;
+        &lt;/Item&gt;
+    &lt;/Errors&gt;
+  &lt;/Data&gt;
+  &lt;Meta&gt;
+    &lt;Id&gt;dad16128-ed4a-4f96-b122-cefadf1ad513&lt;/Id&gt;
+    &lt;Timestamp&gt;2015-05-19 12:43:20Z&lt;/Timestamp&gt;
+    &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;/Meta&gt;
+&lt;/LiveOffersResponse&gt;
+</pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</section>
+</div>

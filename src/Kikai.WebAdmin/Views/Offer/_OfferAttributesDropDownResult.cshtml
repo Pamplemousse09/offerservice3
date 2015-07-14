@@ -1,0 +1,34 @@
+﻿@model Kikai.WebAdmin.UIModels.OfferAttributesModel
+@using Kikai.Domain.Common;
+
+
+<div class="row" id="offer-manage-attributes">
+    <h4>Manage Attributes</h4>
+    <div class="col-lg-2" style="padding:0">
+        <label for="PublishedAttributes">Attribute Id</label>
+    </div>
+    <div class="col-lg-3">
+        @Html.DropDownList("PublishedAttributes", Kikai.WebAdmin.HtmlHelper.OffersHtmlHelper.GetPublishedAttributes(@Model.Attributes).ToList(), new { @class = "form-control", @onchange = "AttributeChange(this)" })
+    </div>
+    <div class="col-lg-1"><label>Value</label></div>
+    <div class="col-lg-4">
+        <input type="text" name="attribute-value" id="attribute-value" class="form-control" disabled="">
+    </div>
+    <div class="col-lg-2">
+        <button id="add-attribute" class="btn btn-default" disabled="">Add Attribute</button>
+    </div>
+</div>
+<div id="chosen-attribute-info" style="display: none;margin-top:10px;">
+    <div class="row">
+        <div class="col-lg-3 info-title">Attribute Id</div>
+        <div class="col-lg-9" id="info-attribute-id"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 info-title">Attribute Type</div>
+        <div class="col-lg-9" id="info-attribute-type"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 info-title">Attribute Label</div>
+        <div class="col-lg-9" id="info-attribute-label"></div>
+    </div>
+</div>

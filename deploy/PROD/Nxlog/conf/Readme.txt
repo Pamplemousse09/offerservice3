@@ -1,0 +1,1 @@
+loggly.admin.server=lsrprod.loggly.com

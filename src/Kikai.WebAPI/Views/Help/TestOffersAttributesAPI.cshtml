@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "GET api/public/TestOffers/{OfferId}/Attributes";
+}
+
+<div id="body">
+    <div id="body">
+        <section class="content-wrapper main-content clear-fix">
+
+            <h1>GET api/public/TestOffers/{OfferId}/Attributes</h1>
+            <div>
+                <p>Returns the list of the respondent attributes for a specified active offer ID.</p>
+
+                <h2>Request Information</h2>
+                <div class="url-example">
+                    <b>Example URL: </b>  http://offerservice.lightspeedgmiservices.com/api/public/TestOffers/34b9f6c6-d530-46b0-b447-233ceab5c62e/Attributes
+                </div>
+                <br />
+                <div class="url-example">
+                    <p>
+                        <h5><b>Header</b></h5>
+                        GET /api/public/TestOffers/34b9f6c6-d530-46b0-b447-233ceab5c62e/Attributes HTTP/1.1<br>
+                        Host: offerservice.lightspeedgmiservices.com<br>
+                        @Html.ActionLink("Authorization", "Authorization", "Help"): LSR-DIGEST apiuser=4b3a893ae1c35, sharedSecret=9981be30d5f31169b542881acb709c36<br>
+                    </p>
+                </div>
+                <br>
+                <table class="help-page-parameters-table">
+                    <thead>
+                        <tr><th class="parameter-header"><h5><b>Parameters</b></h5><th></th><th></th><th></th></tr>
+                        <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="parameter-name">OfferId</td>
+                            <td class="parameter-type">string</td>
+                            <td class="parameter-required">Yes</td>
+                            <td class="parameter-documentation">Unique ID of the offer</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <h2>Response Information</h2>
+                <table class="help-page-parameters-table">
+                    <thead>
+                        <tr><th>Property</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="parameter-name">Id</td>
+                            <td class="parameter-documentation">Attribute identifier</td>
+                        </tr>
+                        <tr>
+                            <td class="parameter-name">Value</td>
+                            <td class="parameter-documentation">Attribute value</td>
+                        </tr>
+                        <tr>
+                    </tbody>
+                </table>
+                <h3>Response body formats</h3>
+
+                <div id="container">
+                    <input id="tab-1" type="radio" name="tab-group" checked="checked" />
+                    <label for="tab-1">JSON</label>
+                    <input id="tab-2" type="radio" name="tab-group" />
+                    <label for="tab-2">XML</label>
+                    <div id="content">
+                        <div id="content-1">
+                            <span><b>Sample for success:</b></span>
+                            <pre class="wrapped">{
+  "Status": true,
+  "Data": {
+    "OfferAttributes": [
+      {
+        "Id": "COREcontact_country",
+        "Value": "165"
+      },
+      {
+        "Id": "COREgender",
+        "Value": "F,M"
+      },
+      {
+        "Id": "CORElanguage",
+        "Value": "14,18"
+      }
+    ],
+    "Errors": null
+  },  
+  "Meta": {
+    "Id": "db044a66-efac-405d-bf49-e22e715b0981",
+    "Timestamp": "2015-05-19 12:45:13Z",
+    "Version": "1.0.0.0"
+  }
+}
+</pre>
+                            <span><b>Sample for error:</b></span>
+                            <pre class="wrapped">{
+  "Status": false,
+  "Data": {
+    "OfferAttributes": null,
+    "Errors": [
+        {
+            "Code": 2009,
+            "Message": "Offer Id 9af3d3dd-b94e-4998-ba1e-275384cb54a2 is either not active or invalid."
+        }
+    ]
+  },
+  "Meta": {
+    "Id": "36ba65f7-aae5-4844-b317-b2179e8f4e19",
+    "Timestamp": "2015-05-19 12:47:47Z",
+    "Version": "1.0.0.0"
+  }
+}
+</pre>
+                        </div>
+                        <div id="content-2">
+                            <span><b>Sample for success:</b></span>
+                            <pre class="wrapped">&lt;OfferAttributesResponse xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Status&gt;true&lt;/Status&gt;
+  &lt;Data&gt;
+    &lt;OfferAttributes&gt;
+      &lt;OfferAttribute&gt;
+        &lt;Id&gt;COREcontact_country&lt;/Id&gt;
+        &lt;Value&gt;165&lt;/Value&gt;
+      &lt;/OfferAttribute&gt;
+      &lt;OfferAttribute&gt;
+        &lt;Id&gt;COREgender&lt;/Id&gt;
+        &lt;Value&gt;F,M&lt;/Value&gt;
+      &lt;/OfferAttribute&gt;
+      &lt;OfferAttribute&gt;
+        &lt;Id&gt;CORElanguage&lt;/Id&gt;
+        &lt;Value&gt;14,18&lt;/Value&gt;
+      &lt;/OfferAttribute&gt;
+    &lt;/OfferAttributes&gt;
+    &lt;Errors i:nil="true" /&gt;
+  &lt;/Data&gt;
+  &lt;Meta&gt;
+    &lt;Id&gt;db044a66-efac-405d-bf49-e22e715b0981&lt;/Id&gt;
+    &lt;Timestamp&gt;2015-05-19 12:45:13Z&lt;/Timestamp&gt;
+    &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;/Meta&gt;
+&lt;/OfferAttributesResponse&gt;
+</pre>
+                            <span><b>Sample for error:</b></span>
+                            <pre class="wrapped">&lt;OfferAttributesResponse xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Status&gt;false&lt;/Status&gt;
+  &lt;Data&gt;
+    &lt;OfferAttributes i:nil="true" /&gt;
+    &lt;Errors&gt;
+        &lt;Item&gt;
+            &lt;Code&gt;2009&lt;/Code&gt;
+            &lt;Message&gt;Offer Id 9af3d3dd-b94e-4998-ba1e-275384cb54a2 is either not active or invalid.&lt;/Message&gt;
+        &lt;Item&gt;
+    &lt;/Errors&gt;
+  &lt;/Data&gt;
+  &lt;Meta&gt;
+    &lt;Id&gt;36ba65f7-aae5-4844-b317-b2179e8f4e19&lt;/Id&gt;
+    &lt;Timestamp&gt;2015-05-19 12:47:47Z&lt;/Timestamp&gt;
+    &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;/Meta&gt;
+&lt;/OfferAttributesResponse&gt;
+</pre>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

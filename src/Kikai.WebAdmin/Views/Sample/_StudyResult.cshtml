@@ -1,0 +1,160 @@
+﻿@model Kikai.WebAdmin.UIModels.MainstreamStudySampleResponseModel
+
+@{
+
+    if (Model != null && Model.Errors.Count() == 0 && Model.SampleList.Count() > 0)
+    {
+        <div class="result-count"><strong>Found: @Model.SampleList.Count() Result(s)</strong></div>
+        var grid = new WebGrid(
+                canPage: false,
+                canSort: false
+            );
+        grid.Bind(Model.SampleList, autoSortAndPage: false);
+        @grid.GetHtml(htmlAttributes: new { id = "samples-grid" },
+                    fillEmptyRows: false,
+                    tableStyle: "table",
+                    columns: grid.Columns(
+                         grid.Column("StudySample.SampleId", "", format: (item) =>
+                             {
+                                 var htmlString = "<input type=\"checkbox\" id=\"add-sample-checkbox-" + @item.StudySample.SampleId + "\" class=\"add-sample-checkboxes\" value=\"" + @item.StudySample.SampleId + "\" {0}>";
+                                 if (item.Exists)
+                                 {
+                                     return Html.Raw(String.Format(htmlString, "disabled"));
+                                 }
+                                 else
+                                 {
+                                     return Html.Raw(String.Format(htmlString, ""));
+                                 }
+                             }),
+                         grid.Column("StudySample.SampleId", "Sample Id", format: @<span class="this-sample-id" id="add-sample-id-@item.StudySample.SampleId">@item.StudySample.SampleId</span>),
+                         grid.Column("StudySample.SampleName", "Sample Name", format: @<span class="this-sample-name" id="add-sample-name-@item.StudySample.SampleId">@item.StudySample.SampleName</span>),
+                         grid.Column("StudySample.MainstreamPercentage", "Mainstream %", format: @<span class="this-sample-mainstream-percentage" id="add-sample-mainstream-percentage-@item.StudySample.SampleId">@item.StudySample.MainstreamPercentage</span>),
+                         grid.Column("StudySample.OverallQuota", "Total Quota", format: @<span class="this-sample-total-quota" id="add-sample-total-quota-@item.StudySample.SampleId">@item.StudySample.OverallQuota</span>),
+                         grid.Column("StudySample.OverallCompletes", "Completes Achieved", format: @<span class="this-sample-overall-completes" id="add-sample-overall-completes-@item.StudySample.SampleId">@item.StudySample.OverallCompletes</span>),
+                         grid.Column("StudySample.RR", "RR", format: @<span class="this-sample-RR" id="add-sample-RR-@item.StudySample.SampleId">@item.StudySample.RR%</span>),
+                         grid.Column("StudySample.IR", "IR", format: @<span class="this-sample-IR" id="add-sample-IR-@item.StudySample.SampleId">@item.StudySample.IR%</span>),
+                         grid.Column("StudySample.CR", "CR", format: @<span class="this-sample-CR" id="add-sample-CR-@item.StudySample.SampleId">@item.StudySample.CR%</span>),
+                         grid.Column("StudySample.LOI", "LOI", format: @<span class="this-sample-LOI" id="add-sample-LOI-@item.StudySample.SampleId">@item.StudySample.LOI</span>),
+                         grid.Column("StudySample.StudyStartDate", "Start Date", format: @<span class="this-sample-start-date" id="add-sample-start-date-@item.StudySample.SampleId">@String.Format("{0:M/d/yyyy HH:mm}", item.StudySample.StudyStartDate)</span>),
+                         grid.Column("StudyEndDate", "End Date", format: (item) =>
+                         {
+                             var StudyEndDate = (item.StudySample.StudyEndDate != null) ? String.Format("{0:M/d/yyyy HH:mm}", item.StudySample.StudyEndDate) : item.StudySample.StudyEndDate;
+                                  var htmlString = "<span class=\"this-sample-end-date\" id=\"add-sample-end-date-@item.StudySample.SampleId\">" + StudyEndDate + "</span>";
+                                  return Html.Raw(htmlString);
+                             })
+                         ));
+
+    <div>
+        <button class="btn btn-default" disabled id="add-sample-button" style="margin-right: 10px;">
+            Add Samples
+        </button>
+        <button class="btn btn-default" data-dismiss="modal">
+            Close
+        </button>
+    </div>
+    }
+    else
+    {
+        <div class="result-count"><strong>Found: 0 Result(s)</strong></div>
+        <table class="table">
+            <tr>
+                <th>Sample Id</th>
+                <th>Sample Name</th>
+                <th>Mainstream %</th>
+                <th>Total Quota</th>
+                <th>Completes Achieved</th>
+                <th>RR</th>
+                <th>IR</th>
+                <th>CR</th>
+                <th>LOI</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            <tr>
+                <td colspan="11"><em class="red">@Model.Errors.First().message</em></td>
+            </tr>
+        </table>
+    }
+}
+
+<script>
+    $(document).ready(function (e) {
+        $(".add-sample-checkboxes").each(function (e) {
+            if ($(this).prop("disabled") == true) {
+                $(this).parent().css("background-color", "#DDD").siblings().css("background-color", "#DDD");
+                $(this).parent().html("<span class='glyphicon green'><input type='checkbox' disabled /><span class='msg-glyphicon'>" + msg_SampleAlreadyExists + "</span></span>");
+            }
+        });
+
+        $(".add-sample-checkboxes").click(function (e) {
+            if ($(".add-sample-checkboxes:checked").length > 0) {
+                $("#add-sample-button").prop("disabled", false);
+            } else {
+                $("#add-sample-button").prop("disabled", true);
+            }
+        });
+
+        $("#add-sample-button").click(function (e) {
+            //Ajax loader handling
+            var nbChecked = $(".add-sample-checkboxes:checked").length;
+            showMessage("#loading-sample", msg_ProcessingRequest);
+           
+            $("#add-sample-button").prop("disabled", true);
+
+            var sampleList = [];
+
+            $(".add-sample-checkboxes:checked").each(function (e) {
+                var checkbox = $(this);
+
+                checkbox.prop("disabled", true);
+
+                var obj = {};
+                obj.SampleId = $(this).val();
+                obj.LOI = $(this).parent().siblings().find(".this-sample-LOI").html();
+                obj.StartDate = $(this).parent().siblings().find(".this-sample-start-date:eq(0)").html();
+                obj.EndDate = $(this).parent().siblings().find(".this-sample-end-date:eq(0)").html();
+                sampleList.push(obj);
+            });
+
+            $.ajax({
+                type: "post",
+                url: BuildUrl("/Sample/AddSample"),
+                data: { sampleList: JSON.stringify(sampleList) },
+                success: function (e) {
+                    if (e != null) {
+                        var results = JSON.parse(e);
+                        for (var i = 0; i < results.length; i++) {
+                            var Added = results[i].Added;
+                            var checkbox = $("#add-sample-checkbox-" + results[i].SampleId);
+                            var Message = results[i].Message;
+                            if (Added) {
+                                checkbox.parent().css("background-color", "lightgreen").siblings().css("background-color", "lightgreen");
+                                checkbox.parent().html("<span class='glyphicon glyphicon-ok green'><span class='msg-glyphicon'>" + Message + "</span></span>");
+
+                            } else {
+                                checkbox.parent().css("background-color", "rgba(255, 0, 0, 0.4)").siblings().css("background-color", "rgba(255, 0, 0, 0.4)");
+                                checkbox.parent().html("<span class='glyphicon glyphicon-remove red'><span class='msg-glyphicon'>" + Message + "</span></span>");
+                            }
+
+                            nbChecked--;
+                            if (nbChecked == 0)
+                                $("#loading-sample").hide();
+                        }
+                    } else {
+                        $("#loading-sample").hide();
+                        checkbox.parent().css("background-color", "rgba(255, 0, 0, 0.4)").siblings().css("background-color", "rgba(255, 0, 0, 0.4)");
+                        checkbox.parent().html("<span class='glyphicon glyphicon-remove red'><span class='msg-glyphicon'>" + error_SampleConnectionSAMFailed + "</span></span>");
+                    }
+                }, error: function (e) {
+                    $("#loading-sample").hide();
+                    checkbox.parent().css("background-color", "rgba(255, 0, 0, 0.4)").siblings().css("background-color", "rgba(255, 0, 0, 0.4)");
+                    checkbox.parent().html("<span class='glyphicon glyphicon-remove red'><span class='msg-glyphicon'>" + error_Unknow + "</span></span>");
+
+                    nbChecked--;
+                    if (nbChecked == 0)
+                        $("#loading-sample").hide();
+                }
+            });
+        });
+    });
+</script>

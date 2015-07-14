@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Kikai.WebAdmin.UIModels.TermsModel>
+
+<div class="result-count"><strong>Found: @Model.Count() Result(s)</strong></div>
+
+@if (Model.Count() > 0)
+    {
+        var grid = new WebGrid(
+                canPage: false,
+                canSort: false
+            );
+        grid.Bind(Model, autoSortAndPage: false);
+        @grid.GetHtml(htmlAttributes: new { id = "terms-history-grid" },
+                    fillEmptyRows: false,
+                    tableStyle: "table",
+                    columns: grid.Columns(
+                         grid.Column("Id", "Term Id", format: @<span id="terms-history-term-id-@item.Id">@item.id</span>),
+                         grid.Column("CPI", "CPI", format: (item) =>
+                             {
+                                 var CPI = (item.CPI != null) ? item.CPI.ToString("0.00") : "";
+                                 var htmlString = "<span id=\"terms-history-term-cpi-" + @item.Id + "\">" + CPI + "</span>";
+                                 return Html.Raw(htmlString);
+                             }),
+                         grid.Column("Status", "Status", format: @<span id="terms-history-term-status-@item.Id">@item.Status</span>),
+                         grid.Column("User", "User", format: @<span id="terms-history-term-user-@item.Id">@item.User</span>),
+                         grid.Column("Start", "Start Date", format: @<span id="terms-history-term-start-date-@item.Id">@item.Start</span>),
+                         grid.Column("Expiration", "End Date", format: (item) =>
+                             {
+                                 if(item.Active == true){
+                                     return Html.Raw("<span id=\"terms-history-term-expiration-date-" + @item.Id + "\"></span>");
+                                 } else{
+                                     return Html.Raw("<span id=\"terms-history-term-expiration-date-" + @item.Id + "\">" + @item.Expiration + "</span>");
+                                 }
+                             })
+                        ));
+    }
+    else
+    {
+<table class="table" id="terms-history-grid">
+    <tr>
+        <th>Term Id</th>
+        <th>CPI</th>
+        <th>Status</th>
+        <th>User</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+    <tr>
+        <td colspan="6">No results found.</td>
+    </tr>
+</table>
+    }

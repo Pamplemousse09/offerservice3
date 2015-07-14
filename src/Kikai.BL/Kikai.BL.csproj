@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A9680D7-B49A-4E7B-9846-F8F9D6EC1A09}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kikai.BL</RootNamespace>
+    <AssemblyName>Kikai.BL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.40\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Concrete\AttributeOptionRepository.cs" />
+    <Compile Include="Concrete\AttributeRepository.cs" />
+    <Compile Include="Concrete\AttributeSettingRepository.cs" />
+    <Compile Include="Concrete\OfferAttributeRepository.cs" />
+    <Compile Include="Concrete\OfferRepository.cs" />
+    <Compile Include="Concrete\ProviderRepository.cs" />
+    <Compile Include="Concrete\QuotaMappingRepository.cs" />
+    <Compile Include="Concrete\SampleMappingRepository.cs" />
+    <Compile Include="Concrete\QuotaExpressionRepository.cs" />
+    <Compile Include="Concrete\RespondentAttributeRepository.cs" />
+    <Compile Include="Concrete\TermRepository.cs" />
+    <Compile Include="DataUtils.cs" />
+    <Compile Include="DTO\ApiObjects\AttributeApiObject.cs" />
+    <Compile Include="DTO\ApiObjects\AttributeDetailsApiObject.cs" />
+    <Compile Include="DTO\ApiObjects\AttributeUsageApiObject.cs" />
+    <Compile Include="DTO\ApiObjects\OfferApiObject.cs" />
+    <Compile Include="DTO\ApiObjects\OfferAttributeApiObject.cs" />
+    <Compile Include="DTO\ApiObjects\QuotaExpressionsApiObject.cs" />
+    <Compile Include="DTO\ApiObjects\RpcOfferDetailsApiObject.cs" />
+    <Compile Include="DTO\AttributeObject.cs" />
+    <Compile Include="DTO\AttributeOptionObject.cs" />
+    <Compile Include="DTO\AttributeSettingObject.cs" />
+    <Compile Include="DTO\FilteredAttributeObject.cs" />
+    <Compile Include="DTO\FilteredOfferObject.cs" />
+    <Compile Include="DTO\InternalApiObjects\InternalApiOffersObject.cs" />
+    <Compile Include="DTO\OfferObject.cs" />
+    <Compile Include="DTO\ProviderObject.cs" />
+    <Compile Include="DTO\RespondentAttributeObject.cs" />
+    <Compile Include="DTO\ApiObjects\AttributesObject.cs" />
+    <Compile Include="DTO\SampleObject.cs" />
+    <Compile Include="DTO\StudyOfferObject.cs" />
+    <Compile Include="DTO\TermObject.cs" />
+    <Compile Include="DTO\WebAdminObjects\AttributeInfoObject.cs" />
+    <Compile Include="IGenericRepository.cs" />
+    <Compile Include="IRepository\IAttributeOptionRepository.cs" />
+    <Compile Include="IRepository\IAttributeRepository.cs" />
+    <Compile Include="IRepository\IAttributeSettingRepository.cs" />
+    <Compile Include="IRepository\IOfferAttributeRepository.cs" />
+    <Compile Include="IRepository\IOfferRepository.cs" />
+    <Compile Include="IRepository\IProviderRepository.cs" />
+    <Compile Include="IRepository\IQuotaMappingRepository.cs" />
+    <Compile Include="IRepository\ISampleMappingRepository.cs" />
+    <Compile Include="IRepository\IQuotaExpressionRepository.cs" />
+    <Compile Include="IRepository\IRespondentAttributeRepository.cs" />
+    <Compile Include="IRepository\ITermRepository.cs" />
+    <Compile Include="IUtils\IJobUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\JobUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kikai.Logging\Kikai.Logging.csproj">
+      <Project>{db891bfe-8150-4f6f-b0b2-e8af40f1bb6f}</Project>
+      <Name>Kikai.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kikai.Domain\Kikai.Domain.csproj">
+      <Project>{e9bdb2b9-ef38-4814-9ca3-82cd0eb00249}</Project>
+      <Name>Kikai.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kikai.Internal.Contracts\Kikai.Internal.Contracts.csproj">
+      <Project>{4250deb4-8df7-4e09-ae1e-621e0e0e010f}</Project>
+      <Name>Kikai.Internal.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kikai.Internal\Kikai.Internal.csproj">
+      <Project>{800c2665-af40-4ceb-a8fc-96656ef81e6b}</Project>
+      <Name>Kikai.Internal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

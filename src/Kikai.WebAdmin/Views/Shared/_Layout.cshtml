@@ -1,0 +1,137 @@
+﻿@using Kikai.Domain.Common;
+
+<!DOCTYPE html>
+<html>
+<head>
+    @Html.Raw(@Session["HTMLHead"])
+    <script>
+        @{
+            string baseurl = Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl();
+            string controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+        }
+        var baseUrl = "@baseurl";
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render(baseurl + "/Content/css")
+
+    @{
+        if (Session["ColorScheme"] == null)
+        {
+                @Styles.Render(baseurl + "/Content/orangescheme");
+        }
+        else
+        {
+            string colorScheme = Session["ColorScheme"].ToString();
+            switch (colorScheme)
+            {
+                case Constants.BlueScheme:
+                    @Styles.Render(baseurl + "/Content/bluescheme");
+                                                               break;
+                case Constants.CyanScheme:
+                @Styles.Render(baseurl + "/Content/cyanscheme");
+                                                               break;
+                case Constants.GrayScheme:
+                @Styles.Render(baseurl + "/Content/grayscheme");
+                                                               break;
+                case Constants.GreenScheme:
+                @Styles.Render(baseurl + "/Content/greenscheme");
+                                                                break;
+                case Constants.MagentaScheme:
+                @Styles.Render(baseurl + "/Content/magentascheme");
+                                                                  break;
+                case Constants.OrangeScheme:
+                @Styles.Render(baseurl + "/Content/orangescheme");
+                                                                 break;
+                case Constants.RedScheme:
+                @Styles.Render(baseurl + "/Content/redscheme");
+                                                              break;
+                case Constants.YellowScheme:
+                @Styles.Render(baseurl + "/Content/yellowscheme");
+                                                                 break;
+                default:
+                @Styles.Render(baseurl + "/Content/orangescheme");
+                                                                 break;
+            }
+        }
+    }
+
+    @Scripts.Render(baseurl + "/bundles/modernizr")
+    @Scripts.Render(baseurl + "/bundles/jquery")
+    @Scripts.Render(baseurl + "/bundles/general")
+    @RenderSection("api", required: false)
+    @RenderSection("Content", false)
+</head>
+<body>
+    @Html.Raw(@Session["Header"])
+    @{
+        bool userIsAuthenticated = User.Identity.IsAuthenticated;
+        bool invalidLogin = (TempData["invalidLogin"] != null) ? true : false;
+    }
+    <div id="menu-container">
+        <div class="navbar navbar-default navbar-fixed-top">
+            @if (userIsAuthenticated)
+            {
+                <ul class="nav navbar-nav" id="navigation-menu">
+                    <li class="@(controller == "Offer" ? "active" : "")">@Html.ActionLink("Offers", "Index", "Offer", new { area = "" }, null)</li>
+                    <li class="@(controller == "Attribute" ? "active" : "")">@Html.ActionLink("Attributes", "Index", "Attribute", new { area = "" }, null)</li>
+                </ul>
+                if (Session["HTMLHead"] == null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="logout-btn">
+                            @Html.ActionLink("Logout", "../Home/Logout", "Home", new { @class = "logoutBtn" })
+                        </li>
+                    </ul>
+                }
+            }
+            else
+            {
+                <ul class="nav navbar-nav navbar-right" id="top-right-nav">
+                    <li>
+                        <form id="authentication-form" class="form-inline" role="form" action="@Url.Action("Authenticate", "Home")" method="post">
+                            <div class="form-group">
+                                <label for="username" class="col-lg-3">Username</label>
+                                <div class="col-lg-9">
+                                    <input type="text" name="username" class="form-control input-sm loginForm" id="username" placeholder="Enter username" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd" class="col-lg-3">Password</label>
+                                <div class="col-lg-9">
+                                    <input type="password" name="password" class="form-control input-sm loginForm" id="pwd" placeholder="Enter password" required="required">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-default btn-sm loginForm loginBtn">Login</button>
+                        </form>
+                        @if (invalidLogin)
+                        {
+                            <div id="invalid-login">Username and/or password are incorrect</div>
+                        }
+                    </li>
+                </ul>
+            }
+        </div>
+        @RenderPage("_Breadcrumb.cshtml")
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <div>
+                &copy; @DateTime.Now.Year, LIGHTSPEED LLC
+                @if (userIsAuthenticated)
+                {
+                    <span>, @System.Configuration.ConfigurationManager.AppSettings["ReleaseNumber"]</span>
+                }
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render(baseurl + "/bundles/jquery")
+    @Scripts.Render(baseurl + "/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @Html.Raw(@Session["Footer"])
+</body>
+</html>

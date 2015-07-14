@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+  <!-- Web.config parameters -->
+  <parameter name="KikaiDB-Web.config Connection String" description="Please provide the Offer Service database connection string."
+    defaultValue="Data Source=offer-dev.ckd0hhd5vffe.us-west-2.rds.amazonaws.com; Initial Catalog=OfferDB-INT;Integrated Security=False;User ID=odbUser;Password=Fp8790eMrtb9qag;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/connectionStrings/add[@name='KikaiDB']/@connectionString" />
+  </parameter>
+
+  <parameter name="Web Service Admin Username"
+    description="Please provide the Web Service Adminsitrator Username"
+    defaultValue="hummingbird"
+    tags="">
+    <parameterEntry
+      kind="XmlFile"
+      scope="obj\\Release\\Package\\PackageTmp\\Web\.config$"
+      match="/configuration/appSettings/add[@key='AdminUser']/@value" />
+  </parameter>
+
+  <parameter name="Web Service Admin Password"
+  description="Please provide the Web Service Adminsitrator Password"
+  defaultValue="34uy^1@mnj*&amp;^WPpoi8"
+  tags="">
+    <parameterEntry
+      kind="XmlFile"
+      scope="obj\\Release\\Package\\PackageTmp\\Web\.config$"
+      match="/configuration/appSettings/add[@key='AdminPassword']/@value" />
+  </parameter>
+
+  <parameter name="Web Service Admin Key"
+  description="Please provide the Web Service Adminsitrator Key"
+  defaultValue="sk4a3aa7aa69fb8"
+  tags="">
+    <parameterEntry
+      kind="XmlFile"
+      scope="obj\\Release\\Package\\PackageTmp\\Web\.config$"
+      match="/configuration/appSettings/add[@key='AdminKey']/@value" />
+  </parameter>
+
+  <!-- Log4net.config parameters -->
+
+  <parameter name="Log Level" description="Please provide the log level for log files" defaultValue="DEBUG" tags="">
+    <parameterEntry kind="XmlFile" scope="log4net.config" match="/log4net/appender[@name='LogFileAppender']/filter/levelMin/@value" />
+    <parameterEntry kind="XmlFile" scope="log4net.config" match="/log4net/logger[@name='AppLogger']/level/@value" />
+  </parameter>
+</parameters>

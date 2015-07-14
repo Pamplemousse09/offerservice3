@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="KikaiDB-Web.config Connection String" value="Data Source=10.74.152.111; Initial Catalog=OfferDB;Integrated Security=False;User ID=offerDBUser;Password=offeruser;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True" />
+  <setParameter name="Offer Link Base URL" value="https://surveyhub.globaltestmarket.com/hub/tplm/welcome" />
+  <setParameter name="OfferService Admin Username" value="osadmin" />
+  <setParameter name="OfferService Admin Password" value="offerservice@prod" />
+  <setParameter name="PMP Store Server" value="mysql_misc1.asp.gmi.lc" />
+  <setParameter name="PMP Store DB" value="webservice" />
+  <setParameter name="PMP Store Username" value="prodmiscuser" />
+  <setParameter name="PMP Store Password" value="iQiFGesILL2xnxQ4" />
+  <setParameter name="Offer Service API User" value="hummingbird" />
+  <setParameter name="Offer Service APIUser password" value="qwefm467@vfd" />
+  <setParameter name="Offer Service APIUser key" value="sk4a5cc7a3d87b8" />
+  <setParameter name="Sample Manager Endpoint Address" value="http://samwsvip.asp.gmi.lcl/SampleManager/SampleManager.ashx" />
+  <setParameter name="Steam Service Endpoint Address" value="http://se2pmpwsvip.asp.gmi.lcl:8083" />
+  <setParameter name="GMI Study Endpoint Address" value="http://www.globaltestmarket.com/Setsampler/api/netmr/study.php" />
+  <setParameter name="Quota Cells Endpoint Address" value="http://www.globaltestmarket.com/Setsampler/api/livematch/quota.php" />
+  <setParameter name="HB User Endpoint Address" value="http://se2hbwsvip.asp.gmi.lcl/api/user.php" />
+
+
+
+
+  <setParameter name="Log Level" value="INFO" />
+
+
+</parameters>

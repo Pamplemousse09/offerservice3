@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+<!-- Web.config parameters -->
+  <parameter name="KikaiDB-Web.config Connection String" description="Please provide the Offer Service database connection string."
+    defaultValue="Data Source=10.74.152.111; Initial Catalog=OfferDB;Integrated Security=False;User ID=offerDBUser;Password=offeruser;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/connectionStrings/add[@name='KikaiDB']/@connectionString" />
+  </parameter>
+
+  <parameter name="Offer Link Base URL" description="Please provide the offer link base URL" defaultValue="https://surveyhub.globaltestmarket.com/hub/tplm/welcome" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/appSettings/add[@key='OfferLink']/@value" />
+  </parameter>
+
+  <parameter name="OfferService Admin Username" description="Please provide the offer service admin username" defaultValue="osadmin" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/system.web/authentication/forms/credentials/user/@name" />
+  </parameter>
+
+  <parameter name="OfferService Admin Password" description="Please provide the offer service admin password" defaultValue="offerservice@prod" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/system.web/authentication/forms/credentials/user/@password" />
+  </parameter>
+
+  <parameter name="PMP Store Server" description="Please provide the PMP Store server name" defaultValue="mysql_misc1.asp.gmi.lcl" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WsAuth/PmpDbStore/@server" />
+  </parameter>
+
+  <parameter name="PMP Store DB" description="Please provide the PMP Store DB" defaultValue="webservice" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WsAuth/PmpDbStore/@db" />
+  </parameter>
+
+  <parameter name="PMP Store Username" description="Please provide the PMP Store username" defaultValue="prodmiscuser" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WsAuth/PmpDbStore/@user" />
+  </parameter>
+
+  <parameter name="PMP Store Password" description="Please provide the PMP Store password" defaultValue="iQiFGesILL2xnxQ4" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WsAuth/PmpDbStore/@pass" />
+  </parameter>
+
+  <parameter name="Offer Service API User" description="Please provide the offer service API user" defaultValue="hummingbird" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/apiuser/@username" />
+  </parameter>
+
+  <parameter name="Offer Service APIUser password" description="Please provide the offer service APIuser password" defaultValue="qwefm467@vfd" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/apiuser/@password" />
+  </parameter>
+
+  <parameter name="Offer Service APIUser key" description="Please provide the offer service APIuser key" defaultValue="sk4a5cc7a3d87b8" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/apiuser/@key" />
+  </parameter>
+
+  <parameter name="Sample Manager Endpoint Address" description="Please provide the endpoint for Sample Manager." defaultValue="http://samwsvip.asp.gmi.lcl/SampleManager/SampleManager.ashx" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/services/service[@name='SampleManager']/@endpoint" />
+  </parameter>
+
+  <parameter name="Steam Service Endpoint Address" description="Please provide the endpoint for Steam Service." defaultValue="http://se2pmpwsvip.asp.gmi.lcl:8083" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/services/service[@name='SteamStudy']/@endpoint" />
+  </parameter>
+
+  <parameter name="GMI Study Endpoint Address" description="Please provide the endpoint for GMI Study Service." defaultValue="http://www.globaltestmarket.com/Setsampler/api/netmr/study.php" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/services/service[@name='GMIStudy']/@endpoint" />
+  </parameter>
+
+  <parameter name="Quota Cells Endpoint Address" description="Please provide the endpoint for Quota Service." defaultValue="http://www.globaltestmarket.com/Setsampler/api/livematch/quota.php" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/services/service[@name='QuotaLiveMatch']/@endpoint" />
+  </parameter>
+
+  <parameter name="HB User Endpoint Address" description="Please provide the endpoint for HummingBird User Service." defaultValue="http://se2hbwsvip.asp.gmi.lcl/api/user.php" tags="">
+    <parameterEntry kind="XmlFile" scope="Web.config" match="/configuration/WebClientUser/services/service[@name='HummingbirdUser']/@endpoint" />
+  </parameter>
+  
+<!-- Log4net.config parameters -->
+    
+<parameter name="Log Level" description="Please provide the log level for log files" defaultValue="INFO" tags="">
+    <parameterEntry kind="XmlFile" scope="log4net.config" match="/log4net/appender[@name='LogFileAppender']/filter/levelMin/@value" />
+    <parameterEntry kind="XmlFile" scope="log4net.config" match="/log4net/logger[@name='AppLogger']/level/@value" />
+    </parameter>  
+</parameters>

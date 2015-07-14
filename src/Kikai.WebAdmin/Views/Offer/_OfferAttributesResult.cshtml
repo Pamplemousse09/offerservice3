@@ -1,0 +1,62 @@
+﻿@model Kikai.WebAdmin.UIModels.OfferAttributesModel
+@using Kikai.Domain.Common;
+
+
+<h5><b>Offer's attributes</b></h5>
+
+@{
+    var supportedAttributes = new Constants().SupportedAttributes;
+    if (Model.Attributes.Count > 0)
+    {
+        var grid = new WebGrid(
+                canPage: true,
+                rowsPerPage: Model.PageSize,
+                canSort: false,
+                ajaxUpdateContainerId: "offer_attributes_grid"
+            );
+        grid.Bind(Model.Attributes, rowCount: Model.TotalRows, autoSortAndPage: false);
+        grid.Pager(WebGridPagerModes.All);
+        @grid.GetHtml(htmlAttributes: new { id = "offer_attributes_grid" },
+                    fillEmptyRows: false,
+                    tableStyle: "table",
+                    mode: WebGridPagerModes.All,
+                    firstText: "<< First page",
+                    previousText: "< Previous page",
+                    nextText: "Next page >",
+                    lastText: "Last page >>",
+                    columns: grid.Columns(
+                                       grid.Column("Attribute Name", "Attribute Id", format: @<span id="offer-attribute-element-name-@item.OfferId">@item.Ident</span>),
+                                       grid.Column("Short Name", "Short Name", format: @<span id="offer-attribute-element-name-@item.OfferId">@item.ShortName</span>),
+                                       grid.Column("Value", "Value", format: @<span id="offer-attribute-element-name-@item.OfferId">@item.Values</span>),
+                                                                                        grid.Column("Action", "Action", format: (item) =>
+                                                                                        {
+                                                                                            var htmlString = "";
+                                                                                            if (supportedAttributes.Contains(item.Ident))
+                                                                                            {
+                                                                                                return Html.Raw(String.Format(htmlString));
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                htmlString = "<a href='#' onclick='DeleteAttribute(" + @item.Id + ",\"" + @item.Ident + "\",\"" + @item.OfferId + "\")'>Delete</a></span>";
+                                                                                                return Html.Raw(String.Format(htmlString));
+                                                                                            }
+                                                                                        }, style: "offer-attributes-table-action-td")
+                                                                                                                                                   ));
+
+
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>Attribute Id</th>
+                <th>Short Name</th>
+                <th>Value</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td colspan="4">No results found.</td>
+            </tr>
+        </table>
+    }
+}

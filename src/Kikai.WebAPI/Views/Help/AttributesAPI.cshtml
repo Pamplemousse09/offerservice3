@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "GET api/public/Attributes";
+}
+
+<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+
+        <h1>GET api/public/Attributes</h1>
+        <div>
+            <p>Returns a collection of published attributes.</p>
+
+            <h2>Request Information</h2>
+
+            <div class="url-example">
+                <b>Example URL: </b>http://offerservice.lightspeedgmiservices.com/api/public/Attributes
+            </div>
+            <br>
+
+            <div class="url-example">
+                <p>
+                    <h5><b>Header</b></h5>
+                    GET /api/public/Attributes HTTP/1.1<br>
+                    Host: offerservice.lightspeedgmiservices.com<br>
+                    @Html.ActionLink("Authorization", "Authorization", "Help"): LSR-DIGEST apiuser=4b3a893ae1c35, sharedSecret=9981be30d5f31169b542881acb709c36<br>
+                </p>
+            </div>
+            <br>
+
+            <h2>Response Information</h2>
+            <table class="help-page-parameters-table">
+                <thead>
+                    <tr><th>Property</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="parameter-name">Id</td>
+                        <td class="parameter-documentation">Attribute identifier</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">Question</td>
+                        <td class="parameter-documentation">Question associated with the attribute</td>
+                    </tr>
+                    <tr>
+                </tbody>
+            </table>
+
+            <h3>Response body formats</h3>
+
+            <div id="container">
+                <input id="tab-1" type="radio" name="tab-group" checked="checked" />
+                <label for="tab-1">JSON</label>
+                <input id="tab-2" type="radio" name="tab-group" />
+                <label for="tab-2">XML</label>
+
+                <div id="content">
+                    <div id="content-1">
+                        <span><b>Sample for success:</b></span>
+                        <pre class="wrapped">{
+  "Status": true,
+  "Data": {
+    "Attributes": [
+      {
+        "Id": "BASCQ21",
+        "Question": "What is your total personal annual income?"
+      },
+      {
+        "Id": "BASCQ6",
+        "Question": "What is your country of birth?"
+      },
+      {
+        "Id": "CORElanguage",
+        "Question": "language"
+      }
+    ],
+    "Errors": null
+  },
+  "Meta": {
+    "Id": "62a7bec1-10c5-4147-8bad-e458ba3acb39",
+    "Timestamp": "2015-05-19 12:09:28Z",
+    "Version": "1.0.0.0"
+  }
+}
+</pre>
+                        <span><b>Sample for error:</b></span>
+                        <pre class="wrapped">{
+  "Status": false,
+  "Data": {
+    "Attributes": null,
+    "Errors": [
+        {
+            "Code": 2016,
+            "Message": "There are currently no published attributes in the offer service. Please try again later."
+        }
+    ]
+  },
+  "Meta": {
+    "Id": "601ddbce-e5fa-4ed6-8684-66d7184e1eb4",
+    "Timestamp": "2015-05-19 12:20:56Z",
+    "Version": "1.0.0.0"
+  }
+}
+</pre>
+                    </div>
+                    <div id="content-2">
+                        <span><b>Sample for success:</b></span>
+                        <pre class="wrapped">&lt;AttributesResponse xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Status&gt;true&lt;/Status&gt;
+  &lt;Data&gt;
+    &lt;Attributes&gt;
+      &lt;Attribute&gt;
+        &lt;Id&gt;BASCQ21&lt;/Id&gt;
+        &lt;Question&gt;What is your total personal annual income?&lt;/Question&gt;
+      &lt;/Attribute&gt;
+      &lt;Attribute&gt;
+        &lt;Id&gt;BASCQ6&lt;/Id&gt;
+        &lt;Question&gt;What is your country of birth?&lt;/Question&gt;
+      &lt;/Attribute&gt;
+      &lt;Attribute&gt;
+        &lt;Id&gt;CORElanguage&lt;/Id&gt;
+        &lt;Question&gt;language&lt;/Question&gt;
+      &lt;/Attribute&gt;
+    &lt;/Attributes&gt;
+    &lt;Errors i:nil="true" /&gt;
+  &lt;/Data&gt;
+  &lt;Meta&gt;
+    &lt;Id&gt;62a7bec1-10c5-4147-8bad-e458ba3acb39&lt;/Id&gt;
+    &lt;Timestamp&gt;2015-05-19 12:09:28Z&lt;/Timestamp&gt;
+    &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;/Meta&gt;
+&lt;/AttributesResponse&gt;
+</pre>
+                        <span><b>Sample for error:</b></span>
+                        <pre class="wrapped">&lt;AttributesResponse xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Status&gt;false&lt;/Status&gt;
+  &lt;Data&gt;
+    &lt;Attributes i:nil="true" /&gt;
+    &lt;Errors&gt;
+        &lt;Item&gt;
+            &lt;Code&gt;2016&lt;/Code&gt;
+            &lt;Message&gt;There are currently no published attributes in the offer service. Please try again later.&lt;/Message&gt;
+        &lt;/Item&gt;
+    &lt;/Errors&gt;
+  &lt;/Data&gt;
+  &lt;Meta&gt;
+    &lt;Id&gt;601ddbce-e5fa-4ed6-8684-66d7184e1eb4&lt;/Id&gt;
+    &lt;Timestamp&gt;2015-05-19 12:20:56Z&lt;/Timestamp&gt;
+    &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;/Meta&gt;
+&lt;/AttributesResponse&gt;
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

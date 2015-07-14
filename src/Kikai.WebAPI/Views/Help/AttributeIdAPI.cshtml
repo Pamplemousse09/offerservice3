@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "GET api/public/Attributes/{id}";
+}
+
+<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+
+        <h1>GET api/public/Attributes/{AttributeId}</h1>
+        <div>
+            <p>Returns information about a specific attribute.</p>
+
+            <h2>Request Information</h2>
+            <div class="url-example">
+                <b>Example URL: </b>http://offerservice.lightspeedgmiservices.com/api/public/Attributes/COREgender
+            </div>
+            <br>
+            <div class="url-example">
+                <p>
+                    <h5><b>Header</b></h5>
+                    GET /api/public/Attributes/COREgender HTTP/1.1<br>
+                    Host: offerservice.lightspeedgmiservices.com<br>
+                    @Html.ActionLink("Authorization", "Authorization", "Help"): LSR-DIGEST apiuser=4b3a893ae1c35, sharedSecret=9981be30d5f31169b542881acb709c36<br>
+                </p>
+            </div>
+            <br>
+            <table class="help-page-parameters-table">
+                <thead>
+                    <tr><th class="parameter-header"><h5><b>Parameters</b></h5><th></th><th></th><th></th></tr>
+                    <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="parameter-name">AttributeId</td>
+                        <td class="parameter-type">string</td>
+                        <td class="parameter-required">Yes</td>
+                        <td class="parameter-documentation">The id of any attribute. To get the list of published attributes invoke @Html.ActionLink("/api/public/Attributes", "AttributesAPI", "Help")</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h2>Response Information</h2>
+            <table class="help-page-parameters-table">
+                <thead>
+                    <tr><th>Property</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="parameter-name">Id</td>
+                        <td class="parameter-documentation">Attribute identifier</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">Question</td>
+                        <td class="parameter-documentation">Question associated with the attribute</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">Type</td>
+                        <td class="parameter-documentation">Type of the attribute</td>
+                    </tr>
+                    <tr>
+                        <td class="parameter-name">AttributeOptions</td>
+                        <td class="parameter-documentation">The attribute Options</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Response body formats</h3>
+
+           <div id="container">
+                <input id="tab-1" type="radio" name="tab-group" checked="checked" />
+                <label for="tab-1">JSON</label>
+                <input id="tab-2" type="radio" name="tab-group" />
+                <label for="tab-2">XML</label>
+
+                <div id="content">
+                    <div id="content-1">
+                           <span><b>Sample for success:</b></span>
+                            <pre class="wrapped">{
+  "Status": true,
+  "Data": {
+    "Attribute": {
+            "Id": "COREgender",
+            "Question": "Gender",
+            "Type": "Single",
+            "AttributeOptions": [
+                {
+                    "Option": "F",
+                    "Description": "Female"
+                },
+                {
+                    "Option": "M",
+                    "Description": "Male"
+                }
+            ]
+    },
+    "Errors": null
+  },
+  "Meta": {
+    "Id": "d6920081-75cb-4157-b9e2-3f7e72608ac8",
+    "Timestamp": "2015-05-19 12:24:43Z",
+    "Version": "1.0.0.0"
+  }
+}
+</pre>
+                            <span><b>Sample for error:</b></span>
+                            <pre class="wrapped">{
+  "Status": false,
+  "Data": {
+    "Attribute": null,
+    "Errors": [
+        {
+            "Code": 2010,
+            "Message": "Attribute Id Coregender1 is invalid."
+        }
+    ]
+  },
+  "Meta": {
+    "Id": "8204ddfc-4d0b-4eb4-a17c-baf3ac65db4c",
+    "Timestamp": "2015-05-19 12:26:14Z",
+    "Version": "1.0.0.0"
+  }
+}
+</pre>
+                        </div>
+                    <div id="content-2">
+                        <span><b>Sample for success:</b></span>
+                        <pre class="wrapped">&lt;AttributesWithOptionsResponse xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Status&gt;true&lt;/Status&gt;
+  &lt;Data&gt;
+    &lt;Attribute&gt;
+        &lt;Id&gt;COREgender&lt;/Id&gt;
+        &lt;Question&gt;Gender&lt;/Question&gt;
+        &lt;Type&gt;Single&lt;/Type&gt;
+        &lt;AttributeOptions&gt;
+            &lt;AttributeOption&gt;
+                &lt;Option&gt;F&lt;/Option&gt;
+                &lt;Description&gt;Female&lt;/Description&gt;
+            &lt;/AttributeOption&gt;
+            &lt;AttributeOption&gt;
+                &lt;Option&gt;M&lt;/Option&gt;
+                &lt;Description&gt;Male&lt;/Description&gt;
+            &lt;/AttributeOption&gt;
+        &lt;/AttributeOptions&gt;
+    &lt;/Attribute&gt;
+    &lt;Errors i:nil="true" /&gt;  
+  &lt;/Data&gt;
+  &lt;Meta&gt;
+    &lt;Id&gt;d6920081-75cb-4157-b9e2-3f7e72608ac8&lt;/Id&gt;
+    &lt;Timestamp&gt;2015-05-19 12:24:43Z&lt;/Timestamp&gt;
+    &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;/Meta&gt;
+&lt;/AttributesWithOptionsResponse&gt;
+</pre>
+                        <span><b>Sample for error:</b></span>
+                        <pre class="wrapped">&lt;AttributesWithOptionsResponse xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Status&gt;false&lt;/Status&gt;
+  &lt;Data&gt;
+    &lt;Attribute i:nil="true" /&gt;
+    &lt;Errors&gt;
+        &lt;Item&gt;
+            &lt;Code&gt;2010&lt;/Code&gt;
+            &lt;Message&gt;Attribute Id Coregender1 is invalid.&lt;/Message&gt;
+        &lt;/Item&gt;
+    &lt;/Errors&gt;
+  &lt;/Data&gt;
+  &lt;Meta&gt;
+    &lt;Id&gt;8204ddfc-4d0b-4eb4-a17c-baf3ac65db4c&lt;/Id&gt;
+    &lt;Timestamp&gt;2015-05-19 12:26:14Z&lt;/Timestamp&gt;
+    &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;/Meta&gt;
+&lt;/AttributesWithOptionsResponse&gt;
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

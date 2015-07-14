@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="KikaiDB-Web.config Connection String" value="Data Source=offer-dev.ckd0hhd5vffe.us-west-2.rds.amazonaws.com; Initial Catalog=Offers;Integrated Security=False;User ID=odbUser;Password=Fp8790eMrtb9qag;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True" />
+
+  <setParameter name="Update Provider Interval(MIN)" value="3" />
+
+  <setParameter name="PMP Store Server" value="devcatdb02.corp.gmi.lcl" />
+  <setParameter name="PMP Store DB" value="webservice" />
+  <setParameter name="IIS Web Application Name" value="Default Web Site/WebAdmin" />
+  <setParameter name="PMP Store Username" value="developer" />
+  <setParameter name="PMP Store Password" value="it4gmi" />
+  <setParameter name="Offer Service API User" value="hummingbird" />
+  <setParameter name="Offer Service APIUser password" value="#@y^77*YQ][yet$" />
+  <setParameter name="Offer Service APIUser key" value="sk4b8430fb90995" />
+  <setParameter name="LiveMatch Endpoint Address" value="http://devvpdsws01.corp.gmi.lcl/LiveMatchHistory/LiveMatchHistory.ashx" />
+  <setParameter name="Respondent Catalog Endpoint Address" value="http://10.74.2.189/Setsampler/api/thirdparty/respondent.php" />
+
+  <setParameter name="SNMP Agent" value="devmon01.corp.gmi.lcl"/>
+  <setParameter name="File Log Level" value="DEBUG"/>
+  <setParameter name="Monitor Log Level" value="DEBUG"/>
+  
+
+</parameters>

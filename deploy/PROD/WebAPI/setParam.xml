@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="KikaiDB-Web.config Connection String" value="Data Source=10.74.152.111; Initial Catalog=OfferDB;Integrated Security=False;User ID=offerDBUser;Password=offeruser;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True" />
+
+
+  <setParameter name="Update Provider Interval(MIN)" value="30" />
+  <setParameter name="PMP Store Server" value="mysql_misc1.asp.gmi.lcl" />
+  <setParameter name="PMP Store DB" value="webservice" />
+  <setParameter name="PMP Store Username" value="prodmiscuser" />
+  <setParameter name="PMP Store Password" value="iQiFGesILL2xnxQ4" />
+  <setParameter name="Offer Service API User" value="hummingbird" />
+  <setParameter name="Offer Service APIUser password" value="qwefm467@vfd" />
+  <setParameter name="Offer Service APIUser key" value="sk4a5cc7a3d87b8" />
+  <setParameter name="LiveMatch Endpoint Address" value="http://imatchwsvip.asp.gmi.lcl/LiveMatchHistory/LiveMatchHistory.ashx" />
+  <setParameter name="Respondent Catalog Endpoint Address" value="http://www.globaltestmarket.com/Setsampler/api/thirdparty/respondent.php" />
+  <setParameter name="SNMP Agent" value="se2mon04.asp.gmi.lcl" />
+  <setParameter name="File Log Level" value="INFO" />
+  <setParameter name="Monitor Log Level" value="INFO" />
+
+</parameters>

@@ -1,0 +1,199 @@
+﻿@model Kikai.BL.DTO.OfferObject
+
+@section scripts {
+    @Scripts.Render(Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl() + "/bundles/offerdetails");
+}
+
+@{
+    ViewBag.Title = "Edit Offer";
+}
+
+<div class="row">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "offer-edit-form", @class="col-lg-5" }))
+    {
+        bool status = false;
+        var dis = true;
+        if (Model.Status == 1)
+        {
+            status = true;
+        }
+        if (Model.Terms == null || Model.Terms.Count == 0)
+        {
+            dis = true;
+        }
+        else
+        {
+            dis = false;
+        }
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id, new { @id = "offer_edit_id" })
+            @Html.HiddenFor(model => model.SampleId, new { @id = "offer_edit_sampleid" })
+
+            <div class="form-group">
+                <label for="Name" class="control-label col-md-4 required">
+                    Title
+                </label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.Title, new { @id = "offer_edit_title", @class = "form-control" })
+                    <div class="field-error" id="error-name"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Topic" class="control-label col-md-4">
+                    Topic
+                </label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.Topic, new { @id = "offer_edit_topic", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Description" class="control-label col-md-4">
+                    Description
+                </label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.Description, new { @id = "offer_edit_description", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="LOI" class="control-label col-md-4">
+                    LOI
+                </label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.LOI, new { @id = "offer_edit_loi", @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="LOI" class="control-label col-md-4">
+                    IR
+                </label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.IR, new { @id = "offer_edit_ir", @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Status" class="control-label col-md-4">
+                    Status
+                </label>
+                <div class="col-md-8">
+                    <div id="status-info">
+                        <span id="status-label">
+                        </span><em id="suspended-status"></em>
+                        <div>
+                            <em id="trying-status">
+                            </em>
+                        </div>
+                    </div>
+
+                    @*{
+                        if (dis)
+                        {
+                            @Html.CheckBoxFor(model => active, new { @id = "offer_edit_active", @class = "provider-checkbox", @disabled = "true" })
+                                        <em id="cpi-msg-edit-error" style="color: #F00; font-size: 0.8em;">Set the CPI before activating the offer.</em>
+                        }
+                        else
+                        {
+                            @Html.CheckBoxFor(model => active, new { @id = "offer_edit_active", @class = "provider-checkbox" })
+                        }
+                                    }
+                                    <input type="text" hidden="true" id="offer_edit_status" value="@Model.Active" />
+                    *@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="OfferLink" class="control-label col-md-4">
+                    Offer Link
+                </label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.OfferLink, new { @id = "offer_edit_link", @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="QuotaRemaining" class="control-label col-md-4">
+                    Quota Remaining
+                </label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.QuotaRemaining, new { @id = "offer_edit_quota_remaining", @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="TestOffer" class="control-label col-md-4">
+                    Test Offer
+                </label>
+                <div class="col-md-8">
+                    @{
+        var testOffer = (bool)@Model.TestOffer;
+                    }
+                    @Html.CheckBoxFor(model => testOffer, new { @id = "provider_edit_test", @class = "provider-checkbox" })
+                </div>
+            </div>
+            <div class="col-md-offset-2 col-md-10" style="  margin-top: 15px; margin-bottom: 15px;">
+                <input type="submit" value="Save" name="update-offer" class="btn btn-default" id="submit-button">
+
+                <div id="saving-offer">
+
+                </div>
+            </div>
+            @Html.ActionLink("Back to Offers", "Index", new { controller = "Offer" }, new { @style = "display: inline-block; margin-top: 14px; margin-bottom: 10px;" })
+        </div>
+    }
+    @{
+        string cpi;
+        if (Model.Terms == null || Model.Terms.Count == 0)
+        {
+            cpi = null;
+        }
+        else
+        {
+            cpi = String.Format("{0:0.00}", Model.Terms.Where(i => i.Active == true).FirstOrDefault().CPI);
+        }
+
+        <div class="col-lg-7">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-lg-2" style="line-height:34px;">
+                    <b>
+                        Set Status
+                    </b>
+                </div>
+                <div class="col-lg-10">
+                    <button onclick="ChangeStatus('@Model.Id', 1)" id="activate-btn" class="btn btn-default" disabled style="margin-left: 13px;">Activate</button>
+                    <button onclick="ChangeStatus('@Model.Id', 0)" id="deactivate-btn" class="btn btn-default" disabled>Deactivate</button>
+                    <div style="margin-left: 13px;" id="activate-error">
+                        <em class="red" style="font-size: 0.8em;"></em>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div id="offer-edit-cpi">
+                    <div class="col-lg-2" style="line-height:34px;"><b>Edit CPI</b></div>
+                    <div class="col-lg-10">
+                        @Html.TextBoxFor(model => cpi, new { @id = "offer-element-set-cpi-value-" + @Model.Id + "", @class = "form-control cpi-field", @style = "", @placeholder = "None" })
+                        <button onclick="SetCPI('@Model.Id', true)" class="btn btn-default" id="set-cpi-btn">Set</button>
+                        <div id="cpi-error" class="red" style="margin-left: 13px;">
+                            <em style="font-size: 0.8em;">
+                                Unable to set the CPI. Please enter a valid CPI (any numeric value between 1 and 9999).
+                            </em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="AttributesDropDownResult">
+
+            </div>
+
+            <div class="row" id="AttributesResult">
+
+            </div>
+        </div>
+    }
+</div>

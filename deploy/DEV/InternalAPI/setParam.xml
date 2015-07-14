@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="KikaiDB-Web.config Connection String" value="Data Source=offer-dev.ckd0hhd5vffe.us-west-2.rds.amazonaws.com; Initial Catalog=Offers;Integrated Security=False;User ID=odbUser;Password=Fp8790eMrtb9qag;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True" />
+
+
+  <setParameter name="Web Service Admin Username" value="hummingbird"/>
+  
+
+  <setParameter name="Web Service Admin Password" value="#@y^77*YQ][yet$"/>
+
+  <setParameter name="Web Service Admin Key" value="sk4b8430fb90995"/>
+
+  <setParameter name="Log Level" value="DEBUG"/>
+
+
+</parameters>

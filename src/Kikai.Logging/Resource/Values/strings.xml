@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<errors>
+  ERR_HUB_AUTHENTICATION_FAILED
+
+  <error
+    id="0"
+    Key="ERR_INTERNAL_FATAL"
+    Code="3000"
+    Message="An error occured while processing your request. Please contact an administrator."
+    Description=""
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="1"
+    Key="ERR_HUB_AUTHENTICATION_FAILED"
+    Code="7"
+    Message="Username and/or shared key are incorrect."
+    Description="Thrown when the authentication header was not presented or was invalid."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="2"
+    Key="ERR_HUB_TERM_EXPIRED"
+    Code="1000" Message="The requested term Id TermId has expired."
+    Description="Thrown when an expired Term Id has been requested."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="3"
+    Key="ERR_HUB_MISSING_DATA_ARGUMENTS"
+    Code="1005"
+    Message="Insufficient request parameters: OfferId and TermsId are mandatory."
+    Description="Thrown when the query is invalid. E.g., Offer ID was missing."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="4"
+    Key="ERR_HUB_INVALID_TERM_ARGUMENT"
+    Code="1006"
+    Message="Term Id TermId is invalid."
+    Description="Thrown when the requested Term Id parameter has an invalid value. E.g., invalid format is specified in the request or the Term Id requested could not be found."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="5"
+    Key="ERR_HUB_SERVICE_UNAVAILABLE"
+    Code="1007"
+    Message="The service is temporarily unavailable. Please try again later or contact administrator."
+    Description="Thrown when the offer Service is turned off by an administrator."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="6"
+    Key="ERR_HUB_OFFER_SUSPENDED_INACTIVE"
+    Code="1008"
+    Message="Offer Id OfferId is not active in the offer service."
+    Description="Thrown when the requested Offer Id has been deactivated or suspended in the Offer Service."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="7"
+    Key="ERR_HUB_INVALID_OFFER_ARGUMENT"
+    Code="1009"
+    Message="Offer Id OfferId is invalid."
+    Description="Thrown when the requested Offer Id parameter has an invalid value. E.g., invalid format is specified in the request or the Offer Id requested could not be found."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="8"
+    Key="ERR_PROVIDER_AUTHENTICATION_FAILED"
+    Code="2000"
+    Message="Username and/or shared key are incorrect."
+    Description="Thrown when the authentication header was not presented or was invalid."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="9"
+    Key="ERR_PROVIDER_AUTHORIZATION_FAILED"
+    Code="2001"
+    Message="Provider Id ApiUser is not authorized to perform this operation."
+    Description="Thrown when a provider requesting a call to Offer Service API's doesn’t have ‘OfferServiceUser’ resource defined in PMP Auth."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="10"
+    Key="ERR_PROVIDER_NOT_FOUND"
+    Code="2003"
+    Message="Provider Id ApiUser was not found. Please try again later or contact administrator."
+    Description="Thrown when the provider is not found in the call to the service."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="11"
+    Key="ERR_PROVIDER_DEACTIVATED"
+    Code="2005"
+    Message="Provider Id ApiUser does not have the required permissions to call this service. Please try again later or contact administrator."
+    Description="Thrown when the provider is deactivated in the showMainstreamProvider call."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="12"
+    Key="ERR_PROVIDER_SERVICE_UNAVAILABLE"
+    Code="2006"
+    Message="The service is temporarily unavailable. Please try again later or contact administrator."
+    Description="Thrown when the offer Service is turned off by an administrator."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="13"
+    Key="ERR_PROVIDER_BACKEND_UNAVAILABLE"
+    Code="2007"
+    Message="Unexpected error encountered while trying to get respondent details."
+    Description="Thrown when Offer Service fails to reach LiveMatch or RepondentCatalog while processing provider request."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="14"
+    Key="ERR_PROVIDER_MISSING_DATA_ARGUMENTS"
+    Code="2008"
+    Message="Insufficient request parameters: COREcontact_country and CORElanguage parameters are mandatory when requesting offers for a specific pid."
+    Description="Thrown when the query is invalid. E.g., COREcontact_country was missing."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="15"
+    Key="ERR_PROVIDER_INVALID_OFFER_ARGUMENT"
+    Code="2009"
+    Message="Offer Id OfferId is either not active or invalid."
+    Description="Thrown when the requested Offer Id parameter has an invalid value. E.g., invalid format is specified in the request or the Offer Id requested could not be found."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="16"
+    Key="ERR_PROVIDER_INVALID_ATTRIBUTE_ARGUMENT"
+    Code="2010"
+    Message="Attribute Id AttributeId is invalid."
+    Description="Thrown when the requested Attribute Id parameter has an invalid value. E.g., invalid format is specified in the request or the Attribute Id requested could not be found."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="17"
+    Key="ERR_INTERNAL_SUSPEND_OFFER"
+    Code="3001"
+    Message="Sample Id: SampleId will be suspended."
+    Description=""
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="18"
+    Key="ERR_PROVIDER_NO_AVAILABLE_OFFER"
+    Code="2011"
+    Message="There are currently no active offers in the offer service. Please try again later."
+    Description=""
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="19"
+    Key="ERR_INTERNAL_SAM_CONNECTION"
+    Code="3002"
+    Message="Offer service could not connect to SAM for unknown reasons."
+    Description=""
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="20"
+    Key="ERR_PROVIDER_NO_MATCHING_OFFERS"
+    Code="2012"
+    Message="There are currently no active offers matching the sent attributes. Please try again later."
+    Description=""
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="21"
+    Key="ERR_INTERNAL_BACKEND_STEAM_UNAVAILABLE"
+    Code="3003"
+    Message="No Document was found in Steam Service for the offer with sample SampleId."
+    Description=""
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="22"
+    Key="ERR_INTERNAL_BACKEND_FETCH_MULTI_UNAVAILABLE"
+    Code="3004"
+    Message="The study StudyId or the sample SampleId are not valid for the Fetch Multi Service."
+    Description=""
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="23"
+    Key="ERR_INTERNAL_BACKEND_GET_SAMPLE_UNAVAILABLE"
+    Code="3005"
+    Message="The Study for sample SampleId is not valid for the GMI GetSample Service."
+    Description=""
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="24"
+    Key="ERR_PROVIDER_BACKEND_QUOTA_EXPRESSIONS_UNAVAILABLE"
+    Code="2013"
+    Message="Unexpected error encountered while trying to get Quota Expressions details."
+    Description="Thrown when Offer Service fails to get the Quota Expressions for this offer."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="25"
+    Key="ERR_PROVIDER_MISSING_OFFER_DATA_ARGUMENTS"
+    Code="2014"
+    Message="Insufficient request parameters: Offer Id is mandatory."
+    Description="Thrown when the query is invalid. E.g., Offer ID was missing."
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="26"
+    Key="ERR_PROVIDER_MISSING_ACTION"
+    Code="2015"
+    Message="Missing action in the request."
+    Description="Thrown when the action has not been specified. E.g., Liveoffers/OfferId/Attributes."
+    ShowInHelpPage="True"
+    />
+
+  <error
+    id="27"
+    Key="ERR_PROVIDER_NO_PUBLISHED_ATTRIBUTES"
+    Code="2016"
+    Message="There are currently no published attributes in the offer service. Please try again later."
+    Description=""
+    ShowInHelpPage="True"
+    />
+
+  <error
+  id="28"
+  Key="ERR_PROVIDER_OFFER_HAS_NO_PUBLISHED_ATTRIBUTES"
+  Code="2017"
+  Message="Offer Id OfferId has no published attributes"
+  Description=""
+  ShowInHelpPage="False"
+    />
+
+  <!--To use GMI standards we had to use error code 9 for the following error-->
+  <error
+    id="29"
+    Key="ERR_INTERNAL_API_MISSING_METHOD"
+    Code="9"
+    Message="Missing or invalid method."
+    Description=""
+    ShowInHelpPage="False"
+    />
+  
+  <error
+    id="30"
+    Key="ERR_INTERNAL_API_INVALID_STUDY"
+    Code="4000"
+    Message="Invalid Study Id StudyId."
+    Description=""
+    ShowInHelpPage="False"
+    />
+
+  <error
+    id="31"
+    Key="ERR_INTERNAL_API_NO_OFFERS"
+    Code="4001"
+    Message="There are currently no offers in the Offer Service."
+    Description=""
+    ShowInHelpPage="False"
+    />
+
+</errors>
+
+<!--
+Last id used: 31
+Last hub error code: 1009
+Last provider error code: 2017
+Last internal error code: 3005
+Last internal api error code: 4001
+-->

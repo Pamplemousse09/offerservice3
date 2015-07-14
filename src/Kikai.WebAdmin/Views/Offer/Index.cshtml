@@ -1,0 +1,116 @@
+﻿@section scripts {
+    @Scripts.Render(Kikai.WebAdmin.HtmlHelper.CustomUrlHelper.GetUrl() + "/bundles/offer")
+}
+@{
+    ViewBag.Title = "Offers";
+
+    var StudyId = (@Session["StudyId"] == null) ? string.Empty : @Session["StudyId"].ToString();
+    var OfferTitle = (@Session["OfferTitle"] == null) ? string.Empty : @Session["OfferTitle"].ToString();
+    var OfferStatus = (@Session["OfferStatus"] == null) ? "1" : @Session["OfferStatus"].ToString();
+    var OfferType = (@Session["OfferType"] == null) ? "0" : @Session["OfferType"].ToString();
+    var PageSize = (@Session["OfferPageSize"] == null) ? "50" : @Session["OfferPageSize"].ToString();
+}
+<!-- This modal is the Add samples container-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-reload="yes" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" data-reload="yes" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Study Search</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <h5><strong>Study ID#</strong></h5>
+                    <form id="get-sample" action="">
+                        <input type="text" class="form-control col-md-4" name="study-id" id="study-id" placeholder="e.g. 123456">
+                        <input type="submit" id="search-study" class="btn btn-default col-md-1" style="margin-left: 10px;" value="Search">
+                    </form>
+                </div>
+                <div id="loading-sample"><img src="@Url.Content("~/Content/img/ajax-loader.gif")" width="15"/> Processing your request ...</div>
+                <div class="row" id="Found-Samples">
+                    <em></em>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Add samples container -->
+
+<!-- This modal is the Terms history container-->
+<div class="modal fade" id="termsWindow" tabindex="-1" role="dialog" aria-labelledby="TermsHistory" aria-hidden="true">
+    <div class="modal-dialog" style="width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Terms History</h4>
+            </div>
+            <div class="modal-body">
+                <h5><b><i>Sample id: <span id="terms-history-sample-id"></span></i></b></h5>
+                <div id="terms-history-container">
+                    <img src="@Url.Content("~/Content/img/ajax-loader.gif")" width="15" /> Processing your request ...
+                </div>
+                <div class="legend">
+                    <em>Active: Term is active and published to providers.</em><br />
+                    <em>Not Active: Term is not expired yet but no longer published to providers.</em><br />
+                    <em>Expired: Term is expired and no longer valid.</em>
+                </div>
+                <div style="margin-top: 10px;" class="legend">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Terms history container-->
+
+<div class="row">
+    <div class="col-lg-12 division-container">
+        <div id="search-form">
+            <h4>Search</h4>
+            <div class='row'>
+                <div class='col-lg-2'>
+                    @Html.Label("Study Id")
+                    @Html.TextBox("StudyId", StudyId, new { @class = "form-control", @placeholder = "e.g. 185852" })
+                </div>
+                <div class='col-lg-2'>
+                    @Html.Label("Offer Title")
+                    @Html.TextBox("OfferTitle", OfferTitle, new { @class = "form-control", @placeholder = "e.g. Sample Offer" })
+                </div>
+                <div class='col-lg-2'>
+                    @Html.Label("Offer Status")
+                    @Html.DropDownList("OfferStatus", Kikai.WebAdmin.HtmlHelper.OffersHtmlHelper.GetOfferStatusList(OfferStatus).ToList(), new { @class = "form-control" })
+                </div>
+                <div class='col-lg-1' style="width:10%;">
+                    @Html.Label("Offer Type")
+                    @Html.DropDownList("OfferType", Kikai.WebAdmin.HtmlHelper.OffersHtmlHelper.GetOfferTypeList(OfferType).ToList(), new { @class = "form-control" })
+                </div>
+                <div class='col-lg-2'>
+                    <div>
+                        <label>
+                            &nbsp;
+                        </label>
+                    </div>
+                    <a class='btn btn-default' id="SearchOffers">
+                        Search
+                    </a>
+                    <a id="reset-btn" class='btn btn-default'>
+                        Reset
+                    </a>
+                </div>
+                <div class="col-lg-3 float-right">
+                    <div>
+                        <label>&nbsp;</label>
+                    </div>
+                    <div id="page-size-container">
+                        <span id="page-size-container-label">Rows Per Page</span>
+                        @Html.DropDownList("PageSize", Kikai.WebAdmin.HtmlHelper.OffersHtmlHelper.GetRecordsPerPageList(PageSize).ToList(), new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 division-container" id="OfferResult">
+        <img src="@Url.Content("~/Content/img/ajax-loader.gif")" width="15" /> Processing request, please wait...
+    </div>
+</div>

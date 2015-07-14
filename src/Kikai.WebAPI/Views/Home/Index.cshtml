@@ -1,0 +1,25 @@
+﻿@using System.Configuration
+@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
+
+<div class="page-header">
+    <h1>Offers</h1>
+</div>
+<div class="offer" data-bind="foreach: offers">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="panel-title" data-bind="text: Description"></h2></div>
+            <div class="panel-body">
+                <p>
+                    The exciting offer <span data-bind="text: Title"></span> only takes <span data-bind="text: LOI"></span> minutes
+                    and you can earn $<span data-bind="text: CPI"></span>!
+                </p>
+                <p><small><a data-bind="attr: {href: OfferLink}">Get Started &raquo;</a></small></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">&nbsp;</div>

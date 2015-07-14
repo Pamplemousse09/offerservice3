@@ -1,0 +1,10 @@
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Release\Resource\Values\FAQ.xml
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Release\Kikai.Domain.dll.config
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Release\Kikai.Domain.dll
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Release\Kikai.Domain.pdb
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Release\log4net.dll
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Release\Newtonsoft.Json.dll
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Release\log4net.xml
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\bin\Release\Newtonsoft.Json.xml
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\obj\Release\Kikai.Domain.dll
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Domain\obj\Release\Kikai.Domain.pdb

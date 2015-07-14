@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="KikaiDB-Web.config Connection String" value="Data Source=offer-dev.ckd0hhd5vffe.us-west-2.rds.amazonaws.com; Initial Catalog=OfferDB-INT;Integrated Security=False;User ID=odbUser;Password=Fp8790eMrtb9qag;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True" />
+  <setParameter name="Offer Link Base URL" value="https://inthub.globaltestmarket.com/hub/tplm/welcome" />
+
+
+  <setParameter name="OfferService Admin Username" value="osadmin"/>
+  
+  <setParameter name="OfferService Admin Password" value="offerservice@int"/>
+  
+  <setParameter name="PMP Store Server" value="intgtmdb01.corp.gmi.lcl"/>
+  
+  <setParameter name="PMP Store DB" value="webservice"/>
+  
+  <setParameter name="PMP Store Username" value="pmpapp"/>
+  
+  <setParameter name="PMP Store Password" value="4wwUfpcc5f"/>
+  
+  <setParameter name="Offer Service API User" value="hummingbird"/>
+  
+  <setParameter name="Offer Service APIUser password" value="34uy^1@mnj*&amp;^WPpoi8"/>
+  
+  <setParameter name="Offer Service APIUser key" value="sk4a3aa7aa69fb8"/>
+  
+  <setParameter name="Sample Manager Endpoint Address" value="http://intlmweb01.corp.gmi.lcl/SampleManager/SampleManager.ashx"/>
+  
+  <setParameter name="Steam Service Endpoint Address" value="http://intpmpwsvip.corp.gmi.lcl:8083"/>
+
+  <setParameter name="GMI Study Endpoint Address" value="http://intnetmrwsvip.asp.gmi.lcl/Setsampler/api/netmr/study.php"/>
+  <setParameter name="Quota Cells Endpoint Address" value="http://intnetmrwsvip.asp.gmi.lcl/Setsampler/api/livematch/quota.php"/>
+  <setParameter name="HB User Endpoint Address" value="http://inthbweb02.corp.gmi.lcl/api/user.php"/>
+
+  <setParameter name="Log Level" value="DEBUG"/>
+  
+
+</parameters>

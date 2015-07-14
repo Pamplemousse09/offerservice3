@@ -1,0 +1,27 @@
+﻿.body-content a {
+    color: #F04B4A  !important;
+}
+
+.breadcrumb li:last-child a{
+    color: #F04B4A !important;
+}
+
+#menu-container .navbar {
+    border-bottom: 1px solid rgba(240, 75, 74, 1) !important;
+}
+
+.navbar-default li.active a,
+.navbar-default li.active a:hover,
+.navbar-default li.active a:focus{
+    background:  rgba(240, 75, 74, 0.8) !important;
+    color: #EEE !important;
+}
+
+/* edited */
+#search-form > h4 {
+    background: rgba(240, 75, 74, 1) !important;
+}
+
+.table tr th {
+    background: rgba(240, 75, 74, 1) !important;
+}

@@ -1,0 +1,10 @@
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Release\Resource\Values\strings.xml
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Release\Kikai.Logging.dll.config
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Release\Kikai.Logging.dll
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Release\Kikai.Logging.pdb
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Release\log4net.dll
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Release\Newtonsoft.Json.dll
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Release\log4net.xml
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\bin\Release\Newtonsoft.Json.xml
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\obj\Release\Kikai.Logging.dll
+C:\Users\edmond\Desktop\Offer Service\offer-service\src\Kikai.Logging\obj\Release\Kikai.Logging.pdb
