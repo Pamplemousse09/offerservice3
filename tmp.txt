@@ -1,0 +1,43 @@
+edmondlaylo@gmail.com
+diff --git a/temp.txt b/temp.txt
+new file mode 100644
+index 0000000..8b3fb51
+--- /dev/null
++++ b/temp.txt
+@@ -0,0 +1,36 @@
++From: Edmond Leylo <edmondlaylo@gmail.com>
++Date: Tue, 14 Jul 2015 15:03:37 +0300
++Subject: [PATCH] 5
++
++
++diff --git a/xunitlog.xml b/xunitlog.xml
++new file mode 100644
++index 0000000..e69de29
++
++From: Edmond Leylo <edmondlaylo@gmail.com>
++Date: Tue, 14 Jul 2015 15:03:37 +0300
++Subject: [PATCH] 5
++
++
++diff --git a/xunitlog.xml b/xunitlog.xml
++new file mode 100644
++index 0000000..e69de29
++
++From: Edmond Leylo <edmondlaylo@gmail.com>
++Date: Tue, 14 Jul 2015 15:03:37 +0300
++Subject: [PATCH] 5
++
++
++diff --git a/xunitlog.xml b/xunitlog.xml
++new file mode 100644
++index 0000000..e69de29
++
++From: Edmond Leylo <edmondlaylo@gmail.com>
++Date: Tue, 14 Jul 2015 15:03:37 +0300
++Subject: [PATCH] 5
++
++
++diff --git a/xunitlog.xml b/xunitlog.xml
++new file mode 100644
++index 0000000..e69de29
++
